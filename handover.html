@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sniperform — Handover Guide for OpenClaw</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.7; color: #333; background: #f5f5f5; padding: 30px; }
+        .doc { max-width: 800px; margin: 0 auto; background: white; padding: 50px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        h1 { font-size: 28px; margin-bottom: 5px; }
+        .subtitle { color: #666; margin-bottom: 30px; border-bottom: 2px solid #eee; padding-bottom: 15px; }
+        h2 { font-size: 20px; margin-top: 35px; margin-bottom: 15px; color: #0066cc; }
+        h3 { font-size: 16px; margin-top: 20px; margin-bottom: 10px; }
+        p, li { color: #555; margin-bottom: 10px; }
+        ul { margin-left: 20px; margin-bottom: 15px; }
+        code { background: #f4f4f4; padding: 2px 7px; border-radius: 4px; font-size: 14px; color: #d63384; }
+        pre { background: #1e1e1e; color: #d4d4d4; padding: 20px; border-radius: 8px; overflow-x: auto; margin: 15px 0; font-size: 13px; line-height: 1.5; }
+        pre code { background: none; color: inherit; padding: 0; }
+        .callout { background: #d1ecf1; border-left: 4px solid #17a2b8; padding: 15px; border-radius: 4px; margin: 15px 0; }
+        .warning { background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; border-radius: 4px; margin: 15px 0; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 14px; }
+        th { background: #f8f8f8; padding: 10px; text-align: left; border-bottom: 2px solid #ddd; }
+        td { padding: 10px; border-bottom: 1px solid #eee; }
+    </style>
+</head>
+<body>
+<div class="doc">
+
+<h1>Sniperform USA — Handover Guide</h1>
+<p class="subtitle">For OpenClaw — editing the website &amp; GitHub setup</p>
+
+<h2>1. What's Set Up</h2>
+<table>
+    <tr><th>Item</th><th>Detail</th></tr>
+    <tr><td>Repository</td><td><a href="https://github.com/swanoj/sniperform-plan">github.com/swanoj/sniperform-plan</a></td></tr>
+    <tr><td>Hosting</td><td>GitHub Pages (free, auto-deploys from <code>master</code> branch)</td></tr>
+    <tr><td>Live site</td><td><a href="https://swanoj.github.io/sniperform-plan/">swanoj.github.io/sniperform-plan/</a></td></tr>
+    <tr><td>Source branch</td><td><code>master</code></td></tr>
+    <tr><td>Source path</td><td><code>/</code> (root)</td></tr>
+</table>
+
+<h2>2. Pages / Files</h2>
+<table>
+    <tr><th>File</th><th>URL</th><th>Purpose</th></tr>
+    <tr>
+        <td><code>sniperform_plan.html</code></td>
+        <td><a href="https://swanoj.github.io/sniperform-plan/sniperform_plan.html">Live link</a></td>
+        <td>Main 90-Day Growth Plan</td>
+    </tr>
+    <tr>
+        <td><code>video_content.html</code></td>
+        <td><a href="https://swanoj.github.io/sniperform-plan/video_content.html">Live link</a></td>
+        <td>Video content shoot planning (Thu 26 March)</td>
+    </tr>
+</table>
+
+<h2>3. How to Edit Pages</h2>
+
+<h3>Option A — Edit directly on GitHub (easiest)</h3>
+<ol>
+    <li>Go to <a href="https://github.com/swanoj/sniperform-plan">github.com/swanoj/sniperform-plan</a></li>
+    <li>Click on the file you want to edit (e.g. <code>sniperform_plan.html</code>)</li>
+    <li>Click the <strong>pencil icon</strong> (top-right of the file view) to edit</li>
+    <li>Make your changes in the editor</li>
+    <li>Scroll down, add a commit message (e.g. "Update pricing section")</li>
+    <li>Click <strong>"Commit changes"</strong></li>
+    <li>Changes go live automatically within 1–2 minutes</li>
+</ol>
+
+<h3>Option B — Clone locally &amp; push</h3>
+<pre><code># Clone the repo
+git clone https://github.com/swanoj/sniperform-plan.git
+cd sniperform-plan
+
+# Edit files with any text editor / VS Code
+code sniperform_plan.html
+
+# Push changes
+git add .
+git commit -m "Update plan content"
+git push origin master</code></pre>
+
+<h3>Option C — Use GitHub CLI</h3>
+<pre><code># View repo
+gh repo view swanoj/sniperform-plan
+
+# Edit via API (for programmatic updates)
+gh api repos/swanoj/sniperform-plan/contents/sniperform_plan.html</code></pre>
+
+<h2>4. How GitHub Pages Works</h2>
+<div class="callout">
+    <strong>Auto-deploy:</strong> Every time you push (or edit on GitHub), the site rebuilds automatically. No build step needed — these are plain HTML files served directly.
+</div>
+<ul>
+    <li>Source: <code>master</code> branch, root <code>/</code></li>
+    <li>Any <code>.html</code> file in the repo root is accessible at <code>https://swanoj.github.io/sniperform-plan/filename.html</code></li>
+    <li>To add a new page: just add a new <code>.html</code> file and push — it's live immediately</li>
+    <li>HTTPS is enforced automatically</li>
+    <li>No server, no CMS, no database — just static HTML files</li>
+</ul>
+
+<h2>5. Adding New Pages</h2>
+<ol>
+    <li>Create a new <code>.html</code> file (copy the structure from an existing page for consistent styling)</li>
+    <li>Add it to the repo (push or upload via GitHub)</li>
+    <li>Add a link to it from the sidebar nav of the main plan page</li>
+    <li>It'll be live at <code>https://swanoj.github.io/sniperform-plan/your-new-page.html</code></li>
+</ol>
+
+<h2>6. Page Structure Quick Reference</h2>
+<p>Both pages use the same styling pattern:</p>
+<pre><code>&lt;div class="container"&gt;
+    &lt;div class="sidebar"&gt;
+        &lt;nav&gt;
+            &lt;a href="#section-id"&gt;Section Name&lt;/a&gt;
+        &lt;/nav&gt;
+    &lt;/div&gt;
+    &lt;div class="main"&gt;
+        &lt;h2 id="section-id"&gt;Section Title&lt;/h2&gt;
+        &lt;p&gt;Content here...&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3>Useful CSS classes already available:</h3>
+<table>
+    <tr><th>Class</th><th>Use for</th></tr>
+    <tr><td><code>.highlight</code></td><td>Yellow callout box (warnings, key info)</td></tr>
+    <tr><td><code>.success</code></td><td>Green callout box (wins, completed items)</td></tr>
+    <tr><td><code>.info</code></td><td>Blue callout box (notes, tips)</td></tr>
+    <tr><td><code>.warning</code></td><td>Red callout box (risks, blockers)</td></tr>
+    <tr><td><code>.checklist</code></td><td>Interactive checkbox list</td></tr>
+    <tr><td><code>.video-card</code></td><td>Card layout for video items</td></tr>
+    <tr><td><code>.tag-short</code>, <code>.tag-long</code>, etc.</td><td>Coloured tags/labels</td></tr>
+</table>
+
+<h2>7. Access &amp; Permissions</h2>
+<div class="warning">
+    <strong>To give someone edit access:</strong> Go to the repo &rarr; Settings &rarr; Collaborators &rarr; Add people. They'll need a GitHub account.
+</div>
+<p>Currently the repo owner is <code>swanoj</code>. Anyone added as a collaborator can push changes directly.</p>
+
+<h2>8. Useful Links</h2>
+<ul>
+    <li><strong>Repo:</strong> <a href="https://github.com/swanoj/sniperform-plan">github.com/swanoj/sniperform-plan</a></li>
+    <li><strong>Pages settings:</strong> <a href="https://github.com/swanoj/sniperform-plan/settings/pages">github.com/swanoj/sniperform-plan/settings/pages</a></li>
+    <li><strong>Live site:</strong> <a href="https://swanoj.github.io/sniperform-plan/">swanoj.github.io/sniperform-plan/</a></li>
+    <li><strong>90-Day Plan:</strong> <a href="https://swanoj.github.io/sniperform-plan/sniperform_plan.html">sniperform_plan.html</a></li>
+    <li><strong>Video Shoot:</strong> <a href="https://swanoj.github.io/sniperform-plan/video_content.html">video_content.html</a></li>
+</ul>
+
+</div>
+</body>
+</html>
