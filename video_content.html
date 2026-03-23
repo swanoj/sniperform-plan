@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sniperform USA — Video Content Creation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 20px;
+            padding: 20px;
+        }
+        
+        .sidebar {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .sidebar h3 {
+            font-size: 14px;
+            text-transform: uppercase;
+            color: #666;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .sidebar nav a {
+            display: block;
+            padding: 8px 0;
+            font-size: 14px;
+            color: #0066cc;
+            text-decoration: none;
+            border-left: 3px solid transparent;
+            padding-left: 10px;
+            transition: all 0.2s;
+        }
+        
+        .sidebar nav a:hover {
+            color: #0052a3;
+            border-left-color: #0066cc;
+        }
+
+        .sidebar nav a.back-link {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            font-weight: 600;
+        }
+        
+        .main {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 20px;
+        }
+        
+        .shoot-date {
+            display: inline-block;
+            background: #0066cc;
+            color: white;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: #222;
+            border-bottom: 2px solid #0066cc;
+            padding-bottom: 10px;
+        }
+        
+        h3 {
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        h4 {
+            font-size: 15px;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            color: #444;
+            font-weight: 600;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        
+        th {
+            background: #f8f8f8;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid #ddd;
+            color: #333;
+        }
+        
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        tr:hover {
+            background: #f9f9f9;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .success {
+            background: #d4edda;
+            padding: 15px;
+            border-left: 4px solid #28a745;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .info {
+            background: #d1ecf1;
+            padding: 15px;
+            border-left: 4px solid #17a2b8;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .checklist {
+            list-style: none;
+            margin-left: 0;
+            padding: 0;
+        }
+
+        .checklist li {
+            padding: 10px 15px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checklist li:last-child {
+            border-bottom: none;
+        }
+
+        .checklist input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #0066cc;
+            cursor: pointer;
+        }
+
+        .checklist label {
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .video-card {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .video-card h4 {
+            margin-top: 0;
+            color: #0066cc;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-right: 5px;
+        }
+
+        .tag-short { background: #e8f5e9; color: #2e7d32; }
+        .tag-long { background: #e3f2fd; color: #1565c0; }
+        .tag-reel { background: #fce4ec; color: #c62828; }
+        .tag-interview { background: #f3e5f5; color: #6a1b9a; }
+        .tag-bts { background: #fff3e0; color: #e65100; }
+
+        .script-placeholder {
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            color: #999;
+            margin: 15px 0;
+        }
+
+        .notes-section {
+            background: #fffde7;
+            border: 1px solid #fff9c4;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .notes-section h4 {
+            color: #f57f17;
+            margin-top: 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h3>Navigation</h3>
+            <nav>
+                <a href="sniperform_plan.html" class="back-link">&larr; Back to 90-Day Plan</a>
+                <a href="#overview">Shoot Overview</a>
+                <a href="#schedule">Shoot Schedule</a>
+                <a href="#shot-list">Shot List</a>
+                <a href="#scripts">Scripts</a>
+                <a href="#equipment">Equipment Checklist</a>
+                <a href="#pre-production">Pre-Production Tasks</a>
+                <a href="#notes">Notes</a>
+            </nav>
+        </div>
+
+        <div class="main">
+            <h1>Video Content Creation <span class="shoot-date">Shoot Day: Thu 26 March</span></h1>
+            <p class="subtitle">Sniperform USA — Video shoot planning, scripts, and checklists</p>
+
+            <div class="highlight">
+                <strong>Shoot Date:</strong> Thursday, 26 March 2026 &nbsp;|&nbsp; 
+                <strong>Status:</strong> Pre-Production &nbsp;|&nbsp;
+                <strong>Scripts &amp; plan:</strong> Awaiting upload
+            </div>
+
+            <!-- OVERVIEW -->
+            <h2 id="overview">Shoot Overview</h2>
+            <p>This page covers all planning, scripts, shot lists, and checklists for the Sniperform USA video content shoot.</p>
+
+            <table>
+                <tr><th>Detail</th><th>Info</th></tr>
+                <tr><td>Shoot Date</td><td>Thursday 26 March 2026</td></tr>
+                <tr><td>Location</td><td><em>TBC</em></td></tr>
+                <tr><td>Call Time</td><td><em>TBC</em></td></tr>
+                <tr><td>Wrap Time (est.)</td><td><em>TBC</em></td></tr>
+                <tr><td>Talent / Presenters</td><td><em>TBC</em></td></tr>
+                <tr><td>Crew</td><td><em>TBC</em></td></tr>
+            </table>
+
+            <!-- SCHEDULE -->
+            <h2 id="schedule">Shoot Schedule</h2>
+            <div class="info">
+                <strong>Schedule will be populated once scripts and plan are uploaded.</strong> Typical structure below as a starting framework.
+            </div>
+
+            <table>
+                <tr><th>Time</th><th>Activity</th><th>Notes</th></tr>
+                <tr><td>—</td><td>Crew call / setup</td><td>Equipment check, lighting, audio</td></tr>
+                <tr><td>—</td><td>Talent arrival / brief</td><td>Run through scripts, wardrobe</td></tr>
+                <tr><td>—</td><td>Block 1 — Content shoots</td><td><em>TBC</em></td></tr>
+                <tr><td>—</td><td>Break</td><td></td></tr>
+                <tr><td>—</td><td>Block 2 — Content shoots</td><td><em>TBC</em></td></tr>
+                <tr><td>—</td><td>B-Roll / cutaways</td><td>Product shots, action footage</td></tr>
+                <tr><td>—</td><td>Wrap</td><td>Backup footage, pack down</td></tr>
+            </table>
+
+            <!-- SHOT LIST -->
+            <h2 id="shot-list">Shot List</h2>
+            <p>Videos planned for this shoot:</p>
+
+            <div class="video-card">
+                <h4>Video 1 — <em>Title TBC</em></h4>
+                <span class="tag tag-short">Short-form</span>
+                <p style="margin-top:10px;">Description and talking points to be added once scripts are uploaded.</p>
+            </div>
+
+            <div class="video-card">
+                <h4>Video 2 — <em>Title TBC</em></h4>
+                <span class="tag tag-long">Long-form</span>
+                <p style="margin-top:10px;">Description and talking points to be added once scripts are uploaded.</p>
+            </div>
+
+            <div class="video-card">
+                <h4>Video 3 — <em>Title TBC</em></h4>
+                <span class="tag tag-reel">Reel</span>
+                <p style="margin-top:10px;">Description and talking points to be added once scripts are uploaded.</p>
+            </div>
+
+            <!-- SCRIPTS -->
+            <h2 id="scripts">Scripts</h2>
+            <div class="script-placeholder">
+                Scripts and shot plans will be added here once uploaded.<br>
+                <small>Check back soon — content is being prepared.</small>
+            </div>
+
+            <!-- EQUIPMENT -->
+            <h2 id="equipment">Equipment Checklist</h2>
+            <h3>Camera &amp; Lenses</h3>
+            <ul class="checklist">
+                <li><input type="checkbox" id="eq1"><label for="eq1">Primary camera body</label></li>
+                <li><input type="checkbox" id="eq2"><label for="eq2">Backup camera body</label></li>
+                <li><input type="checkbox" id="eq3"><label for="eq3">Wide lens</label></li>
+                <li><input type="checkbox" id="eq4"><label for="eq4">Portrait / talking head lens</label></li>
+                <li><input type="checkbox" id="eq5"><label for="eq5">Memory cards (formatted &amp; labelled)</label></li>
+                <li><input type="checkbox" id="eq6"><label for="eq6">Batteries (charged)</label></li>
+            </ul>
+
+            <h3>Audio</h3>
+            <ul class="checklist">
+                <li><input type="checkbox" id="eq7"><label for="eq7">Lapel / lav mics</label></li>
+                <li><input type="checkbox" id="eq8"><label for="eq8">Shotgun mic</label></li>
+                <li><input type="checkbox" id="eq9"><label for="eq9">Audio recorder / interface</label></li>
+                <li><input type="checkbox" id="eq10"><label for="eq10">Spare batteries (audio)</label></li>
+                <li><input type="checkbox" id="eq11"><label for="eq11">Headphones for monitoring</label></li>
+            </ul>
+
+            <h3>Lighting &amp; Grip</h3>
+            <ul class="checklist">
+                <li><input type="checkbox" id="eq12"><label for="eq12">Key light</label></li>
+                <li><input type="checkbox" id="eq13"><label for="eq13">Fill light</label></li>
+                <li><input type="checkbox" id="eq14"><label for="eq14">Backdrop / background</label></li>
+                <li><input type="checkbox" id="eq15"><label for="eq15">Light stands &amp; clamps</label></li>
+                <li><input type="checkbox" id="eq16"><label for="eq16">Diffusion / reflectors</label></li>
+            </ul>
+
+            <h3>Other</h3>
+            <ul class="checklist">
+                <li><input type="checkbox" id="eq17"><label for="eq17">Tripod / gimbal</label></li>
+                <li><input type="checkbox" id="eq18"><label for="eq18">Teleprompter (if needed)</label></li>
+                <li><input type="checkbox" id="eq19"><label for="eq19">Product / props for shots</label></li>
+                <li><input type="checkbox" id="eq20"><label for="eq20">Gaffer tape, cable ties</label></li>
+                <li><input type="checkbox" id="eq21"><label for="eq21">Power strips / extension leads</label></li>
+                <li><input type="checkbox" id="eq22"><label for="eq22">Clapperboard / slate</label></li>
+            </ul>
+
+            <!-- PRE-PRODUCTION TASKS -->
+            <h2 id="pre-production">Pre-Production Tasks</h2>
+            <ul class="checklist">
+                <li><input type="checkbox" id="pp1"><label for="pp1">Confirm shoot location &amp; access</label></li>
+                <li><input type="checkbox" id="pp2"><label for="pp2">Finalise scripts &amp; talking points</label></li>
+                <li><input type="checkbox" id="pp3"><label for="pp3">Share call sheet with crew &amp; talent</label></li>
+                <li><input type="checkbox" id="pp4"><label for="pp4">Confirm wardrobe / styling</label></li>
+                <li><input type="checkbox" id="pp5"><label for="pp5">Charge all batteries</label></li>
+                <li><input type="checkbox" id="pp6"><label for="pp6">Format &amp; label memory cards</label></li>
+                <li><input type="checkbox" id="pp7"><label for="pp7">Test all equipment</label></li>
+                <li><input type="checkbox" id="pp8"><label for="pp8">Create shot list with timings</label></li>
+                <li><input type="checkbox" id="pp9"><label for="pp9">Arrange catering / refreshments</label></li>
+                <li><input type="checkbox" id="pp10"><label for="pp10">Backup plan for weather (if outdoor)</label></li>
+            </ul>
+
+            <!-- NOTES -->
+            <h2 id="notes">Notes</h2>
+            <div class="notes-section">
+                <h4>Production Notes</h4>
+                <p><em>Add any notes, ideas, or changes here as planning progresses.</em></p>
+                <ul>
+                    <li><em>No notes yet — check back after scripts are uploaded.</em></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
