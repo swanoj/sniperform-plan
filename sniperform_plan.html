@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sniperform USA — 90-Day Growth Plan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 20px;
+            padding: 20px;
+        }
+        
+        .sidebar {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .sidebar h3 {
+            font-size: 14px;
+            text-transform: uppercase;
+            color: #666;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .sidebar nav a {
+            display: block;
+            padding: 8px 0;
+            font-size: 14px;
+            color: #0066cc;
+            text-decoration: none;
+            border-left: 3px solid transparent;
+            padding-left: 10px;
+            transition: all 0.2s;
+        }
+        
+        .sidebar nav a:hover {
+            color: #0052a3;
+            border-left-color: #0066cc;
+        }
+        
+        .main {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 20px;
+        }
+        
+        h2 {
+            font-size: 24px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: #222;
+            border-bottom: 2px solid #0066cc;
+            padding-bottom: 10px;
+        }
+        
+        h3 {
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        h4 {
+            font-size: 15px;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            color: #444;
+            font-weight: 600;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        
+        th {
+            background: #f8f8f8;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid #ddd;
+            color: #333;
+        }
+        
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        tr:hover {
+            background: #f9f9f9;
+        }
+        
+        .highlight {
+            background: #fff3cd;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .success {
+            background: #d4edda;
+            padding: 15px;
+            border-left: 4px solid #28a745;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .warning {
+            background: #f8d7da;
+            padding: 15px;
+            border-left: 4px solid #dc3545;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .metric-box {
+            background: #f0f7ff;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 15px 0;
+            border-left: 4px solid #0066cc;
+        }
+        
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 13px;
+        }
+        
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        
+        .checklist {
+            background: #fafafa;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+        
+        .checklist label {
+            display: block;
+            padding: 8px 0;
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        .checklist input[type="checkbox"] {
+            margin-right: 8px;
+            cursor: pointer;
+        }
+        
+        .section {
+            display: none;
+        }
+        
+        .section.active {
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                position: relative;
+                top: 0;
+            }
+            
+            .main {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h3>📊 Navigation</h3>
+            <nav>
+                <a href="#" onclick="showSection('exec-summary'); return false;">Executive Summary</a>
+                <a href="#" onclick="showSection('strategy'); return false;">Strategy Overview</a>
+                <a href="#" onclick="showSection('week1-2'); return false;">Week 1–2: Foundation</a>
+                <a href="#" onclick="showSection('week3-4'); return false;">Week 3–4: Retargeting</a>
+                <a href="#" onclick="showSection('week5-8'); return false;">Week 5–8: Scale</a>
+                <a href="#" onclick="showSection('week9-12'); return false;">Week 9–12: Target ROAS</a>
+                <a href="#" onclick="showSection('metrics'); return false;">Success Metrics</a>
+                <a href="#" onclick="showSection('checklist'); return false;">Checklist</a>
+            </nav>
+        </div>
+        
+        <div class="main">
+            <h1>⚡ Sniperform USA — 90-Day Growth Plan</h1>
+            <div class="subtitle">
+                <strong>Goal:</strong> Scale paid Meta ROAS from 0.37x → 1.2x+ within 90 days<br>
+                <strong>Timeline:</strong> Week 1 (April 1) – Week 12 (June 30)<br>
+                <strong>Total Budget:</strong> $30K–$40K across 3 months
+            </div>
+            
+            <!-- EXECUTIVE SUMMARY -->
+            <div id="exec-summary" class="section active">
+                <h2>📈 Executive Summary</h2>
+                
+                <h3>Current State</h3>
+                <table>
+                    <tr>
+                        <th>Issue</th>
+                        <th>Impact</th>
+                        <th>Fix</th>
+                    </tr>
+                    <tr>
+                        <td>CAPI not configured</td>
+                        <td>Pixel data 50% incomplete; Meta can't optimize</td>
+                        <td>Enable CAPI on Shopify (15 mins)</td>
+                    </tr>
+                    <tr>
+                        <td>Budget → homepage (0.00 ROAS)</td>
+                        <td>Wasting ~$300/week on non-converting traffic</td>
+                        <td>Redirect all paid to landing page</td>
+                    </tr>
+                    <tr>
+                        <td>Zero retargeting</td>
+                        <td>Leaving $2K+/month on table</td>
+                        <td>3-tier retargeting funnel</td>
+                    </tr>
+                    <tr>
+                        <td>Age-spend mismatch</td>
+                        <td>55–64 age bracket outperforms but only gets 14% spend</td>
+                        <td>Rebalance budget by ROAS performance</td>
+                    </tr>
+                    <tr>
+                        <td>No creative testing</td>
+                        <td>Unknown what hooks/formats work</td>
+                        <td>A/B test 3x hero creative variations</td>
+                    </tr>
+                </table>
+                
+                <div class="highlight">
+                    <strong>💡 Total Opportunity:</strong> Fix these 5 issues → estimated +150–200% ROAS improvement (0.37x → 0.75x–1.0x)
+                </div>
+                
+                <h3>Immediate Wins (30 days)</h3>
+                <ol>
+                    <li>Fix tracking & CAPI configuration</li>
+                    <li>Pause homepage spend, redirect to optimized landing page</li>
+                    <li>Activate retargeting (3-tier audience funnel)</li>
+                    <li>Reallocate budget to high-performing age brackets (25–44, 55–64)</li>
+                    <li>Launch 3x hero creative tests</li>
+                </ol>
+                
+                <h3>90-Day Outcome (Target)</h3>
+                <div class="metric-box">
+                    <strong>ROAS:</strong> 1.2x–1.5x<br>
+                    <strong>Conversion Rate:</strong> 1.2–1.8%<br>
+                    <strong>Monthly Ad Spend:</strong> $8K–$12K USD<br>
+                    <strong>Monthly Revenue:</strong> $10K–$18K USD<br>
+                    <strong>Organic + Email Contribution:</strong> 20–30% incremental revenue lift
+                </div>
+            </div>
+            
+            <!-- STRATEGY OVERVIEW -->
+            <div id="strategy" class="section">
+                <h2>🎯 Strategy Overview</h2>
+                
+                <h3>Core Promise</h3>
+                <div class="highlight">
+                    <strong>"The first gym grip that tells you when you're cheating yourself."</strong>
+                </div>
+                
+                <p>Sniperform's patent (bilateral balance vial) is the differentiator. Fat Gripz can't copy this. Use it relentlessly in all marketing.</p>
+                
+                <h3>The 4 Science Pillars (Use in ALL Content)</h3>
+                <ol>
+                    <li><strong>Irradiation</strong> — Thick grip → ↑ grip activation → radiates neural drive up arm → bigger biceps/triceps</li>
+                    <li><strong>Neural Inhibition</strong> — CNS limits force on thin bars; thick grips bypass this protective mechanism</li>
+                    <li><strong>Weak Link Theory</strong> — Grip is often the bottleneck in arm training; removing it allows muscles to work harder</li>
+                    <li><strong>Bilateral Balance (Sniperform-exclusive)</strong> — Spirit level reveals imbalance in real time, prevents compensation patterns</li>
+                </ol>
+                
+                <div class="success">
+                    <strong>✅ Why This Matters for USA Market:</strong> The USA strength training market is highly competitive but unsaturated on the balance angle. Most lifters know thicker grips work, but have NO IDEA their left/right strength is imbalanced. That's Sniperform's differentiator.
+                </div>
+            </div>
+            
+            <!-- WEEK 1-2 -->
+            <div id="week1-2" class="section">
+                <h2>⚡ Week 1–2: Foundation</h2>
+                
+                <h3>Campaign Structure (5 Campaigns)</h3>
+                <pre><strong>CAMPAIGN A: AWARENESS</strong>
+├─ Objective: Video Views
+├─ Audience: Broad + 1% Lookalike (purchasers)
+├─ Budget: $30–40/day
+└─ Creative: Attention-grabbing hooks (spirit level in action)
+
+<strong>CAMPAIGN B: CONVERSION (Core)</strong>
+├─ Objective: Conversions
+├─ Audience: 3x narrow stacks (Fitness Enthusiast, Strength Athlete, Lookalike)
+├─ Budget: $100–150/day (main spend)
+└─ Creative: 3x hero hook tests
+
+<strong>CAMPAIGN C: RETARGETING — Warm</strong>
+├─ Audience: Website visitors (30 days)
+├─ Budget: $40–60/day
+└─ Creative: Social proof + guarantee
+
+<strong>CAMPAIGN D: RETARGETING — Hot</strong>
+├─ Audience: ATC + Init Checkout (7 days)
+├─ Budget: $20–30/day
+└─ Creative: Scarcity + countdown + urgency
+
+<strong>CAMPAIGN E: LOYALTY (Future)</strong>
+├─ Audience: Purchasers (90 days)
+├─ Budget: $20–30/day
+└─ Creative: Bundle upsell (double pack + free shaker)</pre>
+                
+                <h3>🔥 Critical Tasks (Week 1)</h3>
+                <div class="checklist">
+                    <label><input type="checkbox"> <strong>Enable CAPI on Shopify</strong> (non-negotiable — biggest impact on data quality)</label>
+                    <label><input type="checkbox"> <strong>Pause homepage campaigns</strong> (stop wasting budget on 0.00 ROAS traffic)</label>
+                    <label><input type="checkbox"> <strong>Set conversion window to 7-day click</strong> (Ads Manager settings)</label>
+                    <label><input type="checkbox"> <strong>Create 3x audience stacks</strong> (Fitness Enthusiast, Strength Athlete, Lookalike)</label>
+                    <label><input type="checkbox"> <strong>Launch Campaign B</strong> (Core Conversion) with 3x creative tests</label>
+                    <label><input type="checkbox"> <strong>Collect real testimonials</strong> (need 5+ by end of Week 2)</label>
+                </div>
+                
+                <h3>Creative Test Matrix</h3>
+                <table>
+                    <tr>
+                        <th>Variation</th>
+                        <th>Hook</th>
+                        <th>Format</th>
+                        <th>Budget</th>
+                        <th>Success Metric</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Control</strong></td>
+                        <td>"Thicker grips = bigger arms"</td>
+                        <td>Vertical video (15–30s)</td>
+                        <td>$40/day</td>
+                        <td>ROAS > 0.50x</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Variant A</strong></td>
+                        <td>"Your left arm is weaker. You just don't know it."</td>
+                        <td>Video (split screen imbalance)</td>
+                        <td>$30/day</td>
+                        <td>CTR > 3%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Variant B</strong></td>
+                        <td>"Grip is holding you back. Here's the fix."</td>
+                        <td>Video (frustration → solution)</td>
+                        <td>$30/day</td>
+                        <td>CVR > 0.8%</td>
+                    </tr>
+                </table>
+                
+                <h3>Audience Stack #1: Fitness Enthusiast (Primary)</h3>
+                <div class="metric-box">
+                    <strong>Location:</strong> USA (all states)<br>
+                    <strong>Age:</strong> 25–64<br>
+                    <strong>Interests:</strong> Gym, Fitness, Strength Training, Bodybuilding, CrossFit, Personal Training, Fitness Equipment, Fitness Brands<br>
+                    <strong>Behaviors:</strong> Fitness & Wellness<br>
+                    <strong>Device:</strong> All<br>
+                    <strong>Language:</strong> English<br>
+                    <strong>Detailed Targeting Expansion:</strong> OFF (keep targeting tight)
+                </div>
+                
+                <h3>Expected Results (Week 2)</h3>
+                <ul>
+                    <li>Setup complete, campaigns live</li>
+                    <li>$1,200 spent on initial testing</li>
+                    <li>Initial CTR/CPM/CPC data flowing in</li>
+                    <li>5+ customer testimonials collected</li>
+                </ul>
+            </div>
+            
+            <!-- WEEK 3-4 -->
+            <div id="week3-4" class="section">
+                <h2>🎯 Week 3–4: Retargeting & Optimization</h2>
+                
+                <h3>New Campaigns Launching</h3>
+                <div class="checklist">
+                    <label><input type="checkbox"> <strong>Launch Campaign C</strong> (Warm Retargeting: website visitors, 30 days)</label>
+                    <label><input type="checkbox"> <strong>Launch Campaign D</strong> (Hot Retargeting: ATC + Init Checkout, 7 days)</label>
+                    <label><input type="checkbox"> <strong>Fix landing page</strong> (testimonials, video, urgency elements)</label>
+                    <label><input type="checkbox"> <strong>Audit tablet rendering</strong> (fix if broken)</label>
+                    <label><input type="checkbox"> <strong>Collect 10+ customer testimonials</strong> (real names, titles, photos)</label>
+                </div>
+                
+                <h3>Retargeting Creative Examples</h3>
+                
+                <h4>For Warm Audiences (Website Visitors, 30-day window)</h4>
+                <table>
+                    <tr>
+                        <th>Ad Type</th>
+                        <th>Hook</th>
+                        <th>CTA</th>
+                        <th>Purpose</th>
+                    </tr>
+                    <tr>
+                        <td>Static</td>
+                        <td>"90-day guarantee. Risk free."</td>
+                        <td>"Try risk-free"</td>
+                        <td>Trust signal</td>
+                    </tr>
+                    <tr>
+                        <td>Carousel</td>
+                        <td>Step-by-step: vial detail, lift, muscle activation, guarantee, testimonial</td>
+                        <td>"Shop now"</td>
+                        <td>Education</td>
+                    </tr>
+                    <tr>
+                        <td>Video (20s)</td>
+                        <td>"See why 5,000+ lifters trust Sniperform"</td>
+                        <td>"Join them"</td>
+                        <td>Social proof</td>
+                    </tr>
+                </table>
+                
+                <h4>For Hot Audiences (ATC + Init Checkout, 7-day window)</h4>
+                <table>
+                    <tr>
+                        <th>Ad Type</th>
+                        <th>Hook</th>
+                        <th>CTA</th>
+                        <th>Purpose</th>
+                    </tr>
+                    <tr>
+                        <td>Urgent Static</td>
+                        <td>"Only 3 left in stock" (if true)</td>
+                        <td>"Complete order"</td>
+                        <td>Scarcity</td>
+                    </tr>
+                    <tr>
+                        <td>Video (15s)</td>
+                        <td>"Here's what you're missing"</td>
+                        <td>"Get yours"</td>
+                        <td>FOMO</td>
+                    </tr>
+                    <tr>
+                        <td>Carousel</td>
+                        <td>Product, guarantee, testimonial, vial detail, price + CTA</td>
+                        <td>"Check out"</td>
+                        <td>Nudge</td>
+                    </tr>
+                </table>
+                
+                <h3>Landing Page Optimization Tasks</h3>
+                <ol>
+                    <li><strong>Replace all placeholder testimonials</strong> with real names, credentials, before/after photos (8–10 total)</li>
+                    <li><strong>Add video testimonials</strong> (2–3, 15–30s each) embedded in hero, testimonial section, above CTA</li>
+                    <li><strong>Add live visitor counter</strong> (Justuno or similar)</li>
+                    <li><strong>Add stock countdown</strong> (if inventory is limited)</li>
+                    <li><strong>A/B test hero copy variations</strong> (Control vs 2 variants)</li>
+                </ol>
+                
+                <h3>Expected Results (Week 4)</h3>
+                <ul>
+                    <li>Retargeting campaigns live and collecting data</li>
+                    <li>Landing page updated with real testimonials</li>
+                    <li>Tablet bug fixed</li>
+                    <li>ROAS trending toward 0.40x–0.50x</li>
+                    <li>Email subscribers +200–300</li>
+                </ul>
+            </div>
+            
+            <!-- WEEK 5-8 -->
+            <div id="week5-8" class="section">
+                <h2>📊 Week 5–8: Content & Scale</h2>
+                
+                <h3>Campaign Optimization</h3>
+                <div class="checklist">
+                    <label><input type="checkbox"> <strong>Rebalance budget by age bracket</strong> (increase 55–64 from 14% → 25%)</label>
+                    <label><input type="checkbox"> <strong>Test 4x age-segment specific ad variations</strong> (custom hooks per age bracket)</label>
+                    <label><input type="checkbox"> <strong>Pause underperformers</strong> (any campaign with ROAS < 0.25x)</label>
+                    <label><input type="checkbox"> <strong>Creative rotation</strong> (new variations every 2–3 weeks)</label>
+                </div>
+                
+                <h3>Content Calendar (4–6 pieces/week)</h3>
+                <table>
+                    <tr>
+                        <th>Week</th>
+                        <th>Format</th>
+                        <th>Topic</th>
+                        <th>Effort</th>
+                    </tr>
+                    <tr>
+                        <td>Week 5</td>
+                        <td>2x Reels, 1x Carousel</td>
+                        <td>Science pillar + bilateral balance + product proof</td>
+                        <td>Medium</td>
+                    </tr>
+                    <tr>
+                        <td>Week 6</td>
+                        <td>1x Blog (1,500 words), 1x Email sequence</td>
+                        <td>Complete Guide to Arm Training with Thick Grips</td>
+                        <td>High</td>
+                    </tr>
+                    <tr>
+                        <td>Week 7</td>
+                        <td>2x Reels, 1x YouTube Short</td>
+                        <td>Customer testimonial, training tips, expert validation</td>
+                        <td>Medium</td>
+                    </tr>
+                    <tr>
+                        <td>Week 8</td>
+                        <td>1x TikTok, 1x Carousel, 1x Email</td>
+                        <td>Educational angle + social proof + offer</td>
+                        <td>Medium</td>
+                    </tr>
+                </table>
+                
+                <h3>Email Marketing (3 Sequences)</h3>
+                <h4>Sequence 1: Lead Magnet (5 emails, 10 days)</h4>
+                <ul>
+                    <li><strong>Day 1:</strong> Lead magnet delivered + welcome</li>
+                    <li><strong>Day 3:</strong> Science pillar #1 (Irradiation)</li>
+                    <li><strong>Day 5:</strong> Science pillars #2 + #3 (Neural Inhibition + Weak Link)</li>
+                    <li><strong>Day 7:</strong> Bilateral balance explained</li>
+                    <li><strong>Day 9:</strong> Social proof + soft pitch (20% discount)</li>
+                </ul>
+                
+                <h4>Sequence 2: Post-Purchase (6 emails, 30 days)</h4>
+                <ul>
+                    <li><strong>Day 1:</strong> Thank you + how to use guide</li>
+                    <li><strong>Day 5:</strong> Maximize your results (training tips)</li>
+                    <li><strong>Day 10:</strong> Testimonial/case study</li>
+                    <li><strong>Day 15:</strong> Referral incentive ($20 off per friend)</li>
+                    <li><strong>Day 21:</strong> Bundle upsell (double pack + free shaker)</li>
+                    <li><strong>Day 30:</strong> Feedback request + NPS</li>
+                </ul>
+                
+                <h4>Sequence 3: Cart Abandonment (3 emails, 3 days)</h4>
+                <ul>
+                    <li><strong>Hour 1:</strong> "Did you forget this?" + guarantee</li>
+                    <li><strong>Day 1:</strong> Social proof + guarantee</li>
+                    <li><strong>Day 2:</strong> "Last chance" + discount code</li>
+                </ul>
+                
+                <h3>Expected Results (Week 8)</h3>
+                <ul>
+                    <li>ROAS 0.50x–0.65x sustained</li>
+                    <li>Conversion rate +0.65–0.75%</li>
+                    <li>Email subscribers +600–800</li>
+                    <li>Organic reach +1,000–2,000 followers</li>
+                    <li>Content calendar on track (15+ pieces published)</li>
+                </ul>
+            </div>
+            
+            <!-- WEEK 9-12 -->
+            <div id="week9-12" class="section">
+                <h2>🚀 Week 9–12: Scale & Target ROAS</h2>
+                
+                <h3>Budget & Spending</h3>
+                <div class="metric-box">
+                    <strong>Daily ad spend increase:</strong> $150 → $200–250/day<br>
+                    <strong>Condition:</strong> Only if ROAS maintains 0.75x+<br>
+                    <strong>Frequency:</strong> +10–15% per week<br>
+                    <strong>Total monthly spend:</strong> $8K–$12K USD
+                </div>
+                
+                <h3>Scaling Checklist</h3>
+                <div class="checklist">
+                    <label><input type="checkbox"> <strong>Increase daily ad spend</strong> to $200–250 (only if ROAS ≥ 0.75x)</label>
+                    <label><input type="checkbox"> <strong>Test lookalike audiences</strong> (1%, 5%, 10% by purchaser list size)</label>
+                    <label><input type="checkbox"> <strong>Evaluate secondary channels</strong> (TikTok if tracking fixed, YouTube if showing promise)</label>
+                    <label><input type="checkbox"> <strong>Test seasonal angles</strong> (summer training, New Year momentum, sports seasons)</label>
+                    <label><input type="checkbox"> <strong>Full content calendar</strong> (4–6 pieces/week organic)</label>
+                    <label><input type="checkbox"> <strong>Email list growth</strong> (target 2,000+ subscribers)</label>
+                </div>
+                
+                <h3>Target Outcomes (Week 12)</h3>
+                <div class="success">
+                    <strong>✅ ROAS:</strong> 1.0x–1.2x<br>
+                    <strong>✅ Conversion Rate:</strong> 1.2–1.8%<br>
+                    <strong>✅ CPC:</strong> $0.85–0.95<br>
+                    <strong>✅ CPM:</strong> $6.50–7.50<br>
+                    <strong>✅ Monthly Revenue:</strong> $8,000–$12,000<br>
+                    <strong>✅ Email Subscribers:</strong> 2,000+<br>
+                    <strong>✅ Organic Followers:</strong> +1,000–2,000
+                </div>
+                
+                <h3>Success Criteria (All Must Be Met)</h3>
+                <ul>
+                    <li>✅ ROAS sustained 1.0x+ for final 2 weeks</li>
+                    <li>✅ Conversion rate 1.2% or higher</li>
+                    <li>✅ Monthly revenue $8,000+</li>
+                    <li>✅ Zero critical bugs on landing page</li>
+                    <li>✅ 10+ testimonials (mix of text + video)</li>
+                    <li>✅ Email sequences working + list growing</li>
+                    <li>✅ Organic content calendar running (4–6/week)</li>
+                    <li>✅ Secondary channels (TikTok, YouTube) tested + decision made on scaling</li>
+                </ul>
+            </div>
+            
+            <!-- SUCCESS METRICS -->
+            <div id="metrics" class="section">
+                <h2>📊 Success Metrics (Track Weekly)</h2>
+                
+                <table>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Current</th>
+                        <th>30-Day Target</th>
+                        <th>90-Day Target</th>
+                    </tr>
+                    <tr>
+                        <td><strong>ROAS</strong></td>
+                        <td>0.37x</td>
+                        <td>0.55–0.65x</td>
+                        <td>1.0–1.2x</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Conversion Rate</strong></td>
+                        <td>0.55%</td>
+                        <td>0.75–1.0%</td>
+                        <td>1.2–1.8%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CPC (Cost Per Click)</strong></td>
+                        <td>$1.20</td>
+                        <td>$1.00–1.10</td>
+                        <td>$0.85–0.95</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CPM</strong></td>
+                        <td>$8.50</td>
+                        <td>$7.50–8.00</td>
+                        <td>$6.50–7.50</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ATC Rate</strong></td>
+                        <td>2.8%</td>
+                        <td>3.5–4.0%</td>
+                        <td>5.0–6.0%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Monthly Paid Revenue</strong></td>
+                        <td>$1,800</td>
+                        <td>$3,000–4,000</td>
+                        <td>$8,000–12,000</td>
+                    </tr>
+                </table>
+                
+                <h3>Secondary KPIs (Monthly)</h3>
+                <table>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Target</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Cost Per Acquisition (CPA)</strong></td>
+                        <td>&lt;$40</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Customer Lifetime Value (CLV)</strong></td>
+                        <td>&gt;$150 (aim for 3:1 CLV:CPA ratio)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Email Subscriber Growth</strong></td>
+                        <td>+500/month</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Email Open Rate</strong></td>
+                        <td>25%+</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Email Click Rate</strong></td>
+                        <td>3%+</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Organic Social Reach</strong></td>
+                        <td>+2,000–3,000 monthly followers</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Blog Traffic</strong></td>
+                        <td>+200–400 visitors/month</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <!-- CHECKLIST -->
+            <div id="checklist" class="section">
+                <h2>✅ 90-Day Implementation Checklist</h2>
+                
+                <h3>Week 1–2: Foundation</h3>
+                <div class="checklist">
+                    <label><input type="checkbox"> CAPI configured + tested</label>
+                    <label><input type="checkbox"> GA4 purchase tracking verified</label>
+                    <label><input type="checkbox"> Homepage campaigns paused</label>
+                    <label><input type="checkbox"> Campaign B (Core Conversion) launched with 3x creative tests</label>
+                    <label><input type="checkbox"> Campaign A (Awareness) launched</label>
+                    <label><input type="checkbox"> Tablet rendering bug fixed</label>
+                    <label><input type="checkbox"> 5+ customer testimonials collected</label>
+                </div>
+                
+                <h3>Week 3–4: Retargeting & Landing Page</h3>
+                <div class="checklist">
+                    <label><input type="checkbox"> Campaigns C + D (Retargeting) live</label>
+                    <label><input type="checkbox"> Landing page testimonials updated (real names, credentials, photos)</label>
+                    <label><input type="checkbox"> Hero copy A/B test live</label>
+                    <label><input type="checkbox"> Live visitor counter + stock countdown added</label>
+                    <label><input type="checkbox"> Lead magnet (free PDF) created</label>
+                    <label><input type="checkbox"> Email Sequence 1 launched</label>
+                    <label><input type="checkbox"> Email subscribers +200–300</label>
+                </div>
+                
+                <h3>Week 5–8: Content & Authority</h3>
+                <div class="checklist">
+                    <label><input type="checkbox"> 2x long-form blog posts published</label>
+                    <label><input type="checkbox"> 10+ customer testimonials collected (mix of text + video)</label>
+                    <label><input type="checkbox"> 4x age-segment specific ad variations running</label>
+                    <label><input type="checkbox"> Email Sequences 2 + 3 (Post-Purchase + Cart Abandonment) live</label>
+                    <label><input type="checkbox"> 15+ organic content pieces published (reels, carousels, shorts)</label>
+                    <label><input type="checkbox"> ROAS 0.50x–0.65x sustained</label>
+                    <label><input type="checkbox"> Email subscribers +800–1,000</label>
+                </div>
+                
+                <h3>Week 9–12: Scale to Target ROAS</h3>
+                <div class="checklist">
+                    <label><input type="checkbox"> ROAS 1.0x–1.2x achieved</label>
+                    <label><input type="checkbox"> Daily ad spend increased to $200–250 (sustainable)</label>
+                    <label><input type="checkbox"> Lookalike audiences (1%, 5%) tested + scaled if profitable</label>
+                    <label><input type="checkbox"> TikTok secondary channel tested (if ROAS > 0.50x)</label>
+                    <label><input type="checkbox"> Content calendar running (4–6 pieces/week organic)</label>
+                    <label><input type="checkbox"> Email list 2,000+ subscribers</label>
+                    <label><input type="checkbox"> Conversion rate 1.2–1.8% sustained</label>
+                    <label><input type="checkbox"> Monthly revenue from paid $8,000–$12,000</label>
+                </div>
+                
+                <h3>Risk Mitigation</h3>
+                <div class="warning">
+                    <strong>⚠️ CAPI configuration is non-negotiable</strong> — Without it, Meta doesn't see conversions, budget is wasted. Enable Week 1.
+                </div>
+                <div class="warning">
+                    <strong>⚠️ Tablet rendering bug must be fixed</strong> — Already losing 2,100 conversions. QA before scaling.
+                </div>
+                <div class="warning">
+                    <strong>⚠️ Don't pause campaigns before 2 weeks of data</strong> — Need ~500 conversions per campaign to be statistically significant.
+                </div>
+                <div class="warning">
+                    <strong>⚠️ Only scale if ROAS > 0.75x</strong> — Don't throw budget at underperformers. Test creative changes, not just budget increases.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected section
+            const selected = document.getElementById(sectionId);
+            if (selected) {
+                selected.classList.add('active');
+                selected.scrollIntoView({ behavior: 'smooth' });
+            }
+            
+            return false;
+        }
+    </script>
+</body>
+</html>
