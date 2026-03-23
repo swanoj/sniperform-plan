@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sniperform USA — Referral Campaign</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6; color: #333; background: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px; margin: 0 auto;
+            display: grid; grid-template-columns: 280px 1fr;
+            gap: 20px; padding: 20px;
+        }
+        .sidebar {
+            background: white; padding: 20px; border-radius: 8px;
+            height: fit-content; position: sticky; top: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .sidebar h3 { font-size: 14px; text-transform: uppercase; color: #666; margin-bottom: 15px; font-weight: 600; }
+        .sidebar nav a {
+            display: block; padding: 8px 0; font-size: 14px;
+            color: #0066cc; text-decoration: none;
+            border-left: 3px solid transparent; padding-left: 10px; transition: all 0.2s;
+        }
+        .sidebar nav a:hover { color: #0052a3; border-left-color: #0066cc; }
+        .sidebar nav a.back-link { margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #eee; font-weight: 600; }
+        .main { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        h1 { font-size: 32px; margin-bottom: 10px; color: #1a1a1a; }
+        .subtitle { font-size: 16px; color: #666; margin-bottom: 30px; border-bottom: 2px solid #f0f0f0; padding-bottom: 20px; }
+        h2 { font-size: 24px; margin-top: 40px; margin-bottom: 20px; color: #222; border-bottom: 2px solid #0066cc; padding-bottom: 10px; }
+        h3 { font-size: 18px; margin-top: 25px; margin-bottom: 15px; color: #333; }
+        h4 { font-size: 15px; margin-top: 15px; margin-bottom: 10px; color: #444; font-weight: 600; }
+        p { margin-bottom: 15px; color: #555; }
+        ul, ol { margin-left: 20px; margin-bottom: 15px; }
+        li { margin-bottom: 8px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; }
+        th { background: #f8f8f8; padding: 12px; text-align: left; font-weight: 600; border-bottom: 2px solid #ddd; color: #333; }
+        td { padding: 12px; border-bottom: 1px solid #eee; }
+        tr:hover { background: #f9f9f9; }
+        .highlight { background: #fff3cd; padding: 15px; border-left: 4px solid #ffc107; margin: 20px 0; border-radius: 4px; }
+        .success { background: #d4edda; padding: 15px; border-left: 4px solid #28a745; margin: 20px 0; border-radius: 4px; }
+        .info { background: #d1ecf1; padding: 15px; border-left: 4px solid #17a2b8; margin: 20px 0; border-radius: 4px; }
+        .warning { background: #f8d7da; padding: 15px; border-left: 4px solid #dc3545; margin: 20px 0; border-radius: 4px; }
+        .checklist { list-style: none; margin-left: 0; padding: 0; }
+        .checklist li { padding: 10px 15px; border-bottom: 1px solid #eee; display: flex; align-items: center; gap: 10px; }
+        .checklist li:last-child { border-bottom: none; }
+        .checklist input[type="checkbox"] { width: 18px; height: 18px; accent-color: #0066cc; cursor: pointer; }
+        .checklist label { cursor: pointer; flex: 1; }
+        .offer-box {
+            background: linear-gradient(135deg, #0066cc 0%, #004999 100%);
+            color: white; border-radius: 12px; padding: 30px; margin: 25px 0; text-align: center;
+        }
+        .offer-box h3 { color: white; margin-top: 0; font-size: 22px; }
+        .offer-box p { color: rgba(255,255,255,0.9); }
+        .offer-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0; }
+        .offer-card {
+            background: rgba(255,255,255,0.15); border-radius: 8px; padding: 20px; text-align: center;
+        }
+        .offer-card h4 { color: white; font-size: 16px; margin: 0 0 8px 0; }
+        .offer-card .reward { font-size: 24px; font-weight: 700; color: #fff; }
+        .offer-card .reward-sub { font-size: 13px; color: rgba(255,255,255,0.8); }
+        .step-card {
+            background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px;
+            padding: 20px; margin: 15px 0; display: flex; gap: 15px; align-items: flex-start;
+        }
+        .step-number {
+            background: #0066cc; color: white; width: 36px; height: 36px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 16px; flex-shrink: 0;
+        }
+        .step-content h4 { margin-top: 0; color: #0066cc; }
+        .step-content p { margin-bottom: 5px; }
+        .shopify-block {
+            background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px;
+            padding: 20px; margin: 15px 0;
+        }
+        .shopify-block h4 { color: #166534; margin-top: 0; }
+        .shopify-path { font-family: monospace; background: #dcfce7; padding: 3px 8px; border-radius: 4px; font-size: 13px; color: #166534; }
+        pre {
+            background: #1e1e1e; color: #d4d4d4; padding: 20px; border-radius: 8px;
+            overflow-x: auto; margin: 15px 0; font-size: 13px; line-height: 1.5;
+        }
+        pre code { background: none; color: inherit; padding: 0; }
+        code { background: #f4f4f4; padding: 2px 7px; border-radius: 4px; font-size: 14px; color: #d63384; }
+        .flow-diagram {
+            background: #f8f9fa; border-radius: 8px; padding: 25px; margin: 20px 0;
+            text-align: center; font-size: 15px;
+        }
+        .flow-arrow { color: #0066cc; font-weight: 700; font-size: 20px; margin: 0 8px; }
+        .flow-step { display: inline-block; background: white; border: 2px solid #0066cc; border-radius: 8px; padding: 8px 16px; margin: 5px; }
+        .economics-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin: 20px 0; }
+        .econ-card { background: #f8f9fa; border-radius: 8px; padding: 20px; text-align: center; }
+        .econ-card .number { font-size: 28px; font-weight: 700; color: #0066cc; }
+        .econ-card .label { font-size: 13px; color: #666; margin-top: 5px; }
+        .email-preview {
+            background: white; border: 1px solid #ddd; border-radius: 8px;
+            padding: 30px; margin: 15px 0; max-width: 550px;
+        }
+        .email-preview .email-header { text-align: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #eee; }
+        .email-preview .email-subject { font-weight: 700; font-size: 18px; color: #1a1a1a; }
+        .email-preview .email-body { color: #555; font-size: 14px; }
+        .email-preview .email-cta {
+            display: inline-block; background: #0066cc; color: white; padding: 12px 30px;
+            border-radius: 6px; text-decoration: none; font-weight: 600; margin: 15px 0;
+        }
+        @media (max-width: 768px) {
+            .container { grid-template-columns: 1fr; }
+            .sidebar { position: static; }
+            .offer-columns { grid-template-columns: 1fr; }
+            .economics-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h3>Navigation</h3>
+            <nav>
+                <a href="sniperform_plan.html" class="back-link">&larr; Back to 90-Day Plan</a>
+                <a href="#the-offer">The Offer</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#economics">Unit Economics</a>
+                <a href="#email-campaign">Email Campaign</a>
+                <a href="#email-sequence">Email Sequence</a>
+                <a href="#shopify-setup">Shopify Setup</a>
+                <a href="#tracking">Tracking &amp; Attribution</a>
+                <a href="#timeline">Launch Timeline</a>
+                <a href="#launch-checklist">Launch Checklist</a>
+            </nav>
+        </div>
+
+        <div class="main">
+            <h1>Refer a Friend Campaign</h1>
+            <p class="subtitle">Turn every customer into a brand ambassador — reward referrals with free merch &amp; free shipping</p>
+
+            <!-- THE OFFER -->
+            <h2 id="the-offer">The Offer</h2>
+
+            <div class="offer-box">
+                <h3>Refer a Friend to Sniperform</h3>
+                <p>Share your unique link. When your friend makes their first purchase, you both win.</p>
+                <div class="offer-columns">
+                    <div class="offer-card">
+                        <h4>YOU GET</h4>
+                        <div class="reward">Free Sniperform T-Shirt</div>
+                        <div class="reward-sub">Valued at $50 — shipped free</div>
+                    </div>
+                    <div class="offer-card">
+                        <h4>YOUR FRIEND GETS</h4>
+                        <div class="reward">Free Shipping</div>
+                        <div class="reward-sub">On their entire first order</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="success">
+                <strong>Why this works:</strong> The referrer reward ($50 t-shirt) feels premium and tangible — it's not a generic discount code people ignore. The friend gets free shipping which removes the #1 cart abandonment reason. Both sides have a clear, simple incentive.
+            </div>
+
+            <!-- HOW IT WORKS -->
+            <h2 id="how-it-works">How It Works</h2>
+
+            <div class="flow-diagram">
+                <span class="flow-step">Customer buys</span>
+                <span class="flow-arrow">&rarr;</span>
+                <span class="flow-step">Gets referral email</span>
+                <span class="flow-arrow">&rarr;</span>
+                <span class="flow-step">Shares unique link</span>
+                <span class="flow-arrow">&rarr;</span>
+                <span class="flow-step">Friend orders with free shipping</span>
+                <span class="flow-arrow">&rarr;</span>
+                <span class="flow-step">Referrer gets free t-shirt</span>
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Customer completes a purchase</h4>
+                    <p>Any order on sniperform.com triggers the referral email flow (sent 3 days after delivery).</p>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Referral email lands in their inbox</h4>
+                    <p>Personalised email with their unique referral link and a clear explanation of what they (and their friend) get.</p>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>Customer shares the link</h4>
+                    <p>They share via text, social, email — whatever works. The link auto-applies the friend's free shipping discount at checkout.</p>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h4>Friend places their first order</h4>
+                    <p>Free shipping is applied automatically. The referral app tracks the conversion back to the original customer.</p>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h4>Referrer gets their free t-shirt</h4>
+                    <p>Automatic notification sent to the referrer. T-shirt is either auto-fulfilled as a $0 order or a discount code for 100% off the tee is sent to them.</p>
+                </div>
+            </div>
+
+            <!-- ECONOMICS -->
+            <h2 id="economics">Unit Economics</h2>
+
+            <div class="economics-grid">
+                <div class="econ-card">
+                    <div class="number">~$12–18</div>
+                    <div class="label">True cost per t-shirt<br>(production + shipping)</div>
+                </div>
+                <div class="econ-card">
+                    <div class="number">~$6–10</div>
+                    <div class="label">Free shipping cost<br>(average order)</div>
+                </div>
+                <div class="econ-card">
+                    <div class="number">~$18–28</div>
+                    <div class="label">Total cost per<br>successful referral</div>
+                </div>
+            </div>
+
+            <table>
+                <tr><th>Metric</th><th>Estimate</th><th>Notes</th></tr>
+                <tr><td>Average order value (AOV)</td><td>$80–120</td><td>Existing Sniperform AOV</td></tr>
+                <tr><td>T-shirt COGS</td><td>$12–18</td><td>Print/blank + fulfilment (not retail $50)</td></tr>
+                <tr><td>Free shipping cost absorbed</td><td>$6–10</td><td>Depends on zone / weight</td></tr>
+                <tr><td>Total referral cost</td><td>$18–28</td><td>Per successful conversion</td></tr>
+                <tr><td>Effective CPA via referral</td><td>$18–28</td><td>vs $30–60+ paid acquisition CPA</td></tr>
+                <tr><td>Referral conversion rate (est.)</td><td>8–15%</td><td>Of shared links that convert</td></tr>
+                <tr><td>Referral participation rate (est.)</td><td>5–12%</td><td>Of customers who share their link</td></tr>
+            </table>
+
+            <div class="success">
+                <strong>The maths:</strong> Even at a $28 all-in cost per referral, you're acquiring customers at roughly half the cost of paid ads — and referred customers have 25–40% higher LTV on average. The t-shirt also doubles as walking brand advertising.
+            </div>
+
+            <div class="highlight">
+                <strong>T-shirt tip:</strong> Price the Sniperform tee at $50 on the store (it's a premium branded item). The perceived value to the referrer is $50, but your true cost is $12–18. This is what makes the economics work — high perceived value, low actual cost.
+            </div>
+
+            <!-- EMAIL CAMPAIGN -->
+            <h2 id="email-campaign">Email Campaign</h2>
+
+            <h3>Trigger &amp; Timing</h3>
+            <table>
+                <tr><th>Email</th><th>Trigger</th><th>Timing</th><th>Purpose</th></tr>
+                <tr><td>Referral Invite</td><td>Order delivered</td><td>3 days post-delivery</td><td>Primary ask — share your link</td></tr>
+                <tr><td>Reminder</td><td>No referral activity</td><td>10 days after first email</td><td>Nudge — haven't shared yet?</td></tr>
+                <tr><td>Success / Reward</td><td>Friend completes purchase</td><td>Immediately</td><td>Congrats + t-shirt claim instructions</td></tr>
+                <tr><td>Friend Welcome</td><td>Friend places order</td><td>Post-purchase</td><td>Welcome + their own referral link</td></tr>
+            </table>
+
+            <h3>Segmentation</h3>
+            <ul>
+                <li><strong>All purchasers</strong> — every customer who has completed at least one order</li>
+                <li><strong>Existing customers (backfill)</strong> — one-time blast to all past purchasers to launch the programme</li>
+                <li><strong>Repeat customers</strong> — higher priority, more likely to refer (consider sending these first)</li>
+                <li><strong>Exclude</strong> — anyone who has already received a referral reward (they stay in the programme but don't get the initial invite again)</li>
+            </ul>
+
+            <!-- EMAIL SEQUENCE -->
+            <h2 id="email-sequence">Email Sequence &amp; Copy</h2>
+
+            <h3>Email 1 — Referral Invite (3 days post-delivery)</h3>
+            <div class="email-preview">
+                <div class="email-header">
+                    <div style="font-size:12px;color:#999;">Subject line:</div>
+                    <div class="email-subject">You've earned a free Sniperform t-shirt ($50 value)</div>
+                </div>
+                <div class="email-body">
+                    <p>Hey [First Name],</p>
+                    <p>Thanks for your recent order — hope you're loving it.</p>
+                    <p>We've just launched our referral programme and as an existing customer, you're in. Here's the deal:</p>
+                    <p><strong>Share your personal link with a friend.</strong> When they make their first purchase (they'll get free shipping), we'll send you a free Sniperform t-shirt — valued at $50, on us.</p>
+                    <div style="text-align:center;">
+                        <a class="email-cta">Share Your Referral Link</a>
+                    </div>
+                    <p>No limit — refer 3 friends, get 3 shirts. Simple as that.</p>
+                    <p>— The Sniperform Team</p>
+                </div>
+            </div>
+
+            <h3>Email 2 — Reminder (10 days later, if no shares)</h3>
+            <div class="email-preview">
+                <div class="email-header">
+                    <div style="font-size:12px;color:#999;">Subject line:</div>
+                    <div class="email-subject">Still waiting on your free t-shirt...</div>
+                </div>
+                <div class="email-body">
+                    <p>Hey [First Name],</p>
+                    <p>Quick reminder — your referral link is ready and waiting. One friend, one purchase, one free Sniperform tee ($50 value) headed your way.</p>
+                    <p>Your friend gets free shipping on their first order too — so it's a win-win.</p>
+                    <div style="text-align:center;">
+                        <a class="email-cta">Grab Your Link</a>
+                    </div>
+                    <p>— The Sniperform Team</p>
+                </div>
+            </div>
+
+            <h3>Email 3 — Reward Notification (triggered on friend's purchase)</h3>
+            <div class="email-preview">
+                <div class="email-header">
+                    <div style="font-size:12px;color:#999;">Subject line:</div>
+                    <div class="email-subject">Your free Sniperform t-shirt is on its way!</div>
+                </div>
+                <div class="email-body">
+                    <p>Hey [First Name],</p>
+                    <p>Your friend [Friend Name] just placed their first order — nice work!</p>
+                    <p>As promised, your free Sniperform t-shirt ($50 value) is being prepared. Use the link below to pick your size and we'll ship it out:</p>
+                    <div style="text-align:center;">
+                        <a class="email-cta">Claim Your T-Shirt</a>
+                    </div>
+                    <p>Want another one? Keep sharing — there's no limit.</p>
+                    <p>— The Sniperform Team</p>
+                </div>
+            </div>
+
+            <!-- SHOPIFY SETUP -->
+            <h2 id="shopify-setup">Shopify Setup — Step by Step</h2>
+
+            <h3>Option A — Referral App (Recommended)</h3>
+            <div class="info">
+                <strong>Recommended approach:</strong> Use a dedicated referral app. It handles unique links, tracking, reward fulfilment, and fraud prevention out of the box.
+            </div>
+
+            <h4>Best Shopify Referral Apps:</h4>
+            <table>
+                <tr><th>App</th><th>Price</th><th>Why</th></tr>
+                <tr><td><strong>ReferralCandy</strong></td><td>From $59/mo</td><td>Most popular, solid tracking, auto-rewards, email templates, integrates with Klaviyo</td></tr>
+                <tr><td><strong>Referral Factory</strong></td><td>From $95/mo</td><td>More customisable, landing page builder, good for branded experiences</td></tr>
+                <tr><td><strong>Yotpo Loyalty &amp; Referrals</strong></td><td>Free tier available</td><td>If you already use Yotpo for reviews — combines loyalty + referral in one</td></tr>
+                <tr><td><strong>Smile.io</strong></td><td>Free tier available</td><td>Loyalty + referral combo, great for points-based systems (can also do flat rewards)</td></tr>
+            </table>
+
+            <div class="shopify-block">
+                <h4>Setup Steps — ReferralCandy (example)</h4>
+                <ol>
+                    <li><span class="shopify-path">Shopify Admin &rarr; Apps &rarr; Search "ReferralCandy" &rarr; Install</span></li>
+                    <li>Configure the <strong>Referrer Reward</strong>:
+                        <ul>
+                            <li>Reward type: <strong>Custom Reward</strong> (or Discount Code)</li>
+                            <li>Set up a 100% discount code auto-generated for the Sniperform T-Shirt product only</li>
+                            <li>Alternatively: set reward to "Cash/Gift" at $50 value applied as store credit</li>
+                        </ul>
+                    </li>
+                    <li>Configure the <strong>Friend Incentive</strong>:
+                        <ul>
+                            <li>Reward type: <strong>Free Shipping</strong></li>
+                            <li>Auto-generates a unique free shipping code for each referral link</li>
+                        </ul>
+                    </li>
+                    <li>Customise the referral landing page with Sniperform branding</li>
+                    <li>Set up email templates (use the copy above as a starting point)</li>
+                    <li>Connect to Klaviyo (if using) for email automation</li>
+                    <li>Test the full flow before launching</li>
+                </ol>
+            </div>
+
+            <h3>Option B — Manual Setup (No App, DIY)</h3>
+            <div class="highlight">
+                <strong>Use this if you want zero app costs.</strong> More manual work but fully doable. Best for smaller volume.
+            </div>
+
+            <div class="shopify-block">
+                <h4>Step 1 — Create the T-Shirt Product</h4>
+                <p><span class="shopify-path">Shopify Admin &rarr; Products &rarr; Add product</span></p>
+                <ul>
+                    <li>Title: <strong>Sniperform T-Shirt</strong></li>
+                    <li>Price: <strong>$50.00</strong> (so it's purchasable by anyone too)</li>
+                    <li>Add size variants (S, M, L, XL, XXL)</li>
+                    <li>Upload product images</li>
+                    <li>Track inventory so you know stock levels</li>
+                </ul>
+            </div>
+
+            <div class="shopify-block">
+                <h4>Step 2 — Create Discount Codes</h4>
+                <p><span class="shopify-path">Shopify Admin &rarr; Discounts &rarr; Create discount</span></p>
+
+                <p><strong>Referrer Reward Code:</strong></p>
+                <ul>
+                    <li>Code: <code>SNIPERFORM-FREETEE</code> (or generate unique codes per customer)</li>
+                    <li>Type: <strong>Percentage — 100%</strong></li>
+                    <li>Applies to: <strong>Specific product</strong> — Sniperform T-Shirt only</li>
+                    <li>Usage: <strong>One per customer</strong></li>
+                    <li>Also tick: <strong>Free shipping</strong> on this order</li>
+                </ul>
+
+                <p><strong>Friend Free Shipping Code:</strong></p>
+                <ul>
+                    <li>Code: <code>FRIENDSHIP</code> (or unique per referral)</li>
+                    <li>Type: <strong>Free shipping</strong></li>
+                    <li>Minimum requirement: <strong>No minimum</strong> (or set a minimum order if preferred)</li>
+                    <li>Usage: <strong>One per customer</strong></li>
+                    <li>Set an end date if running as a limited campaign</li>
+                </ul>
+            </div>
+
+            <div class="shopify-block">
+                <h4>Step 3 — Set Up Email Automation</h4>
+                <p><span class="shopify-path">Shopify Admin &rarr; Marketing &rarr; Automations &rarr; Create automation</span></p>
+                <p>Or use <strong>Klaviyo / Shopify Email</strong>:</p>
+                <ol>
+                    <li><strong>Trigger:</strong> Order fulfilled (delivered)</li>
+                    <li><strong>Wait:</strong> 3 days</li>
+                    <li><strong>Send:</strong> Referral invite email (with unique discount code for friend)</li>
+                    <li><strong>Condition:</strong> If no referral conversion after 10 days &rarr; send reminder email</li>
+                    <li><strong>Trigger:</strong> When friend's order is placed with the referral code &rarr; send reward email to referrer with free t-shirt code</li>
+                </ol>
+            </div>
+
+            <div class="shopify-block">
+                <h4>Step 4 — Track Referrals Manually</h4>
+                <p>If not using an app, track referrals in a spreadsheet or Shopify order tags:</p>
+                <ul>
+                    <li>Tag referred orders with <code>referral</code> and the referrer's email</li>
+                    <li><span class="shopify-path">Shopify Admin &rarr; Orders &rarr; Filter by tag "referral"</span></li>
+                    <li>When a referral order comes in, manually send the free t-shirt code to the referrer</li>
+                    <li>Or use <strong>Shopify Flow</strong> (Shopify Plus / Advanced) to automate tagging and notifications</li>
+                </ul>
+            </div>
+
+            <h3>Option C — Shopify Flow Automation (Advanced/Plus plans)</h3>
+            <div class="shopify-block">
+                <h4>Automated Flow</h4>
+                <p><span class="shopify-path">Shopify Admin &rarr; Apps &rarr; Shopify Flow &rarr; Create workflow</span></p>
+                <ol>
+                    <li><strong>Trigger:</strong> Order created</li>
+                    <li><strong>Condition:</strong> Discount code used contains "FRIEND-" prefix</li>
+                    <li><strong>Action:</strong> Tag order as "referral"</li>
+                    <li><strong>Action:</strong> Look up the referrer (mapped from the discount code)</li>
+                    <li><strong>Action:</strong> Send internal notification to fulfil free t-shirt</li>
+                    <li><strong>Action:</strong> Send email to referrer with reward claim link</li>
+                </ol>
+            </div>
+
+            <!-- TRACKING -->
+            <h2 id="tracking">Tracking &amp; Attribution</h2>
+
+            <h3>Key Metrics to Monitor</h3>
+            <table>
+                <tr><th>Metric</th><th>Where to Track</th><th>Target</th></tr>
+                <tr><td>Referral emails sent</td><td>Klaviyo / Shopify Email</td><td>100% of fulfilled orders</td></tr>
+                <tr><td>Referral email open rate</td><td>Klaviyo / Shopify Email</td><td>&gt;40%</td></tr>
+                <tr><td>Referral link shares</td><td>Referral app dashboard</td><td>5–12% of recipients</td></tr>
+                <tr><td>Friend conversion rate</td><td>Referral app / discount code usage</td><td>8–15% of shared links</td></tr>
+                <tr><td>T-shirts claimed</td><td>Orders with free tee code</td><td>Track volume + sizes</td></tr>
+                <tr><td>Revenue from referrals</td><td>Shopify &rarr; Orders &rarr; filter by referral tag/code</td><td>Growing month-on-month</td></tr>
+                <tr><td>Referral CPA</td><td>Total t-shirt + shipping costs / referred orders</td><td>&lt;$30</td></tr>
+                <tr><td>Referred customer LTV</td><td>Shopify / analytics</td><td>25%+ higher than avg</td></tr>
+            </table>
+
+            <h3>Fraud Prevention</h3>
+            <div class="warning">
+                <strong>Watch for:</strong>
+                <ul style="margin-top:10px;">
+                    <li>Self-referrals (same person, different email) — referral apps detect this automatically; if manual, check shipping addresses</li>
+                    <li>Referral + immediate return — set a rule: t-shirt reward only ships after the friend's return window closes (14–30 days)</li>
+                    <li>Bulk fake referrals — cap rewards at 5–10 per customer per month initially</li>
+                </ul>
+            </div>
+
+            <!-- TIMELINE -->
+            <h2 id="timeline">Launch Timeline</h2>
+
+            <table>
+                <tr><th>Day</th><th>Task</th><th>Owner</th></tr>
+                <tr><td>Day 1–2</td><td>Choose referral method (app vs manual)</td><td></td></tr>
+                <tr><td>Day 2–3</td><td>Install app or create discount codes</td><td></td></tr>
+                <tr><td>Day 3–4</td><td>Create Sniperform T-Shirt product listing (if not already live)</td><td></td></tr>
+                <tr><td>Day 4–5</td><td>Design &amp; upload t-shirt product images</td><td></td></tr>
+                <tr><td>Day 5–6</td><td>Write &amp; design email templates (use copy above)</td><td></td></tr>
+                <tr><td>Day 6–7</td><td>Set up email automation flow (Klaviyo or Shopify Email)</td><td></td></tr>
+                <tr><td>Day 7</td><td>Internal test — run through entire flow end-to-end</td><td></td></tr>
+                <tr><td>Day 8</td><td>Soft launch — enable for new orders only</td><td></td></tr>
+                <tr><td>Day 10</td><td>Backfill blast — email all past purchasers with referral invite</td><td></td></tr>
+                <tr><td>Day 14</td><td>Review metrics, adjust email copy if open rates are low</td><td></td></tr>
+                <tr><td>Day 30</td><td>Full review — CPA, conversion rates, t-shirt stock levels</td><td></td></tr>
+            </table>
+
+            <!-- LAUNCH CHECKLIST -->
+            <h2 id="launch-checklist">Launch Checklist</h2>
+
+            <h3>Product &amp; Inventory</h3>
+            <ul class="checklist">
+                <li><input type="checkbox" id="lc1"><label for="lc1">Sniperform T-Shirt product created in Shopify</label></li>
+                <li><input type="checkbox" id="lc2"><label for="lc2">All size variants added (S–XXL)</label></li>
+                <li><input type="checkbox" id="lc3"><label for="lc3">Product images uploaded</label></li>
+                <li><input type="checkbox" id="lc4"><label for="lc4">Initial stock ordered / on hand (min 50 units)</label></li>
+                <li><input type="checkbox" id="lc5"><label for="lc5">T-shirt priced at $50 on storefront</label></li>
+            </ul>
+
+            <h3>Discount Codes &amp; Rewards</h3>
+            <ul class="checklist">
+                <li><input type="checkbox" id="lc6"><label for="lc6">Referrer reward discount code created (100% off t-shirt)</label></li>
+                <li><input type="checkbox" id="lc7"><label for="lc7">Friend free shipping discount code created</label></li>
+                <li><input type="checkbox" id="lc8"><label for="lc8">Usage limits set (one per customer)</label></li>
+                <li><input type="checkbox" id="lc9"><label for="lc9">Discount codes tested at checkout</label></li>
+            </ul>
+
+            <h3>Email &amp; Automation</h3>
+            <ul class="checklist">
+                <li><input type="checkbox" id="lc10"><label for="lc10">Referral invite email designed &amp; written</label></li>
+                <li><input type="checkbox" id="lc11"><label for="lc11">Reminder email designed &amp; written</label></li>
+                <li><input type="checkbox" id="lc12"><label for="lc12">Reward notification email designed &amp; written</label></li>
+                <li><input type="checkbox" id="lc13"><label for="lc13">Email automation flow built (trigger &rarr; wait &rarr; send)</label></li>
+                <li><input type="checkbox" id="lc14"><label for="lc14">Test emails sent and reviewed</label></li>
+                <li><input type="checkbox" id="lc15"><label for="lc15">Unsubscribe / opt-out working correctly</label></li>
+            </ul>
+
+            <h3>Tracking &amp; Ops</h3>
+            <ul class="checklist">
+                <li><input type="checkbox" id="lc16"><label for="lc16">Referral tracking method in place (app or manual)</label></li>
+                <li><input type="checkbox" id="lc17"><label for="lc17">Order tagging set up for referral attribution</label></li>
+                <li><input type="checkbox" id="lc18"><label for="lc18">Fraud prevention rules configured</label></li>
+                <li><input type="checkbox" id="lc19"><label for="lc19">T-shirt fulfilment process documented</label></li>
+                <li><input type="checkbox" id="lc20"><label for="lc20">End-to-end test completed (place test order, share link, redeem)</label></li>
+            </ul>
+
+            <h3>Launch</h3>
+            <ul class="checklist">
+                <li><input type="checkbox" id="lc21"><label for="lc21">Soft launch enabled (new orders only)</label></li>
+                <li><input type="checkbox" id="lc22"><label for="lc22">Backfill email blast sent to all past purchasers</label></li>
+                <li><input type="checkbox" id="lc23"><label for="lc23">Social media announcement posted</label></li>
+                <li><input type="checkbox" id="lc24"><label for="lc24">Referral programme added to website (banner, footer, or dedicated page)</label></li>
+                <li><input type="checkbox" id="lc25"><label for="lc25">Day 14 review scheduled</label></li>
+            </ul>
+
+        </div>
+    </div>
+</body>
+</html>
