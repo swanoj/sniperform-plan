@@ -383,15 +383,78 @@
         <!-- TABS SECTION -->
         <div class="section">
             <div class="nav-tabs">
-                <button class="nav-tab active" onclick="switchTab('campaigns')">🎬 Campaigns</button>
+                <button class="nav-tab active" onclick="switchTab('clarity')">📋 Clarity Sheet</button>
+                <button class="nav-tab" onclick="switchTab('campaigns')">🎬 Campaigns</button>
                 <button class="nav-tab" onclick="switchTab('issues')">🚨 Issues & Alerts</button>
                 <button class="nav-tab" onclick="switchTab('recommendations')">🎯 Recommendations</button>
                 <button class="nav-tab" onclick="switchTab('competitor')">🔍 Competitor Insights</button>
                 <button class="nav-tab" onclick="switchTab('forecast')">📈 Forecast</button>
             </div>
 
+            <!-- CLARITY SHEET TAB -->
+            <div id="clarity" class="tab-content active">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 30px;">
+                    <div class="card">
+                        <h3>💰 Gross Revenue (Shopify)</h3>
+                        <div class="metric" id="clarity-gross-revenue">$0</div>
+                        <div class="metric-label">Net: <span id="clarity-net-revenue">$0</span> | Refunds: <span id="clarity-refunds">$0</span></div>
+                    </div>
+                    <div class="card">
+                        <h3>📊 Gross Margin</h3>
+                        <div class="metric target" id="clarity-margin">0%</div>
+                        <div class="metric-label">Operating Margin: <span id="clarity-op-margin">0%</span></div>
+                    </div>
+                    <div class="card">
+                        <h3>💵 Net Profit</h3>
+                        <div class="metric" id="clarity-net-profit">$0</div>
+                        <div class="metric-label">LTV: <span id="clarity-ltv">$0</span> | LTV:CAC: <span id="clarity-ltv-cac">0x</span></div>
+                    </div>
+                    <div class="card">
+                        <h3>📈 GA4 Traffic</h3>
+                        <div class="metric target" id="clarity-traffic">0</div>
+                        <div class="metric-label">Organic: <span id="clarity-organic">0</span> | Paid: <span id="clarity-paid-traffic">0</span> | Direct: <span id="clarity-direct">0</span></div>
+                    </div>
+                    <div class="card">
+                        <h3>📧 Email Subscribers</h3>
+                        <div class="metric target" id="clarity-subscribers">0</div>
+                        <div class="metric-label">Growth: <span id="clarity-email-growth">+0</span> | Open Rate: <span id="clarity-open-rate">0%</span></div>
+                    </div>
+                    <div class="card">
+                        <h3>👥 Customers</h3>
+                        <div class="metric" id="clarity-customers">0</div>
+                        <div class="metric-label">New: <span id="clarity-new-customers">0</span> | Repeat Rate: <span id="clarity-repeat-rate">0%</span></div>
+                    </div>
+                </div>
+
+                <h2 style="margin-top: 30px;">📊 Business Scorecard</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;" id="scorecard-container">
+                    <!-- Populated by JS -->
+                </div>
+
+                <h2 style="margin-top: 30px;">🎯 Performance Gaps vs Targets</h2>
+                <table style="margin-top: 20px;">
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Current</th>
+                            <th>Target</th>
+                            <th>Gap</th>
+                            <th>Priority</th>
+                        </tr>
+                    </thead>
+                    <tbody id="gaps-table">
+                        <tr><td colspan="5" class="no-data">Loading gaps...</td></tr>
+                    </tbody>
+                </table>
+
+                <h2 style="margin-top: 30px;">💡 Business Intelligence Summary</h2>
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-top: 20px;">
+                    <div id="clarity-summary">Loading summary...</div>
+                </div>
+            </div>
+
             <!-- CAMPAIGNS TAB -->
-            <div id="campaigns" class="tab-content active">
+            <div id="campaigns" class="tab-content">
                 <table>
                     <thead>
                         <tr>
@@ -513,8 +576,102 @@
             // Populate top/bottom performers
             populatePerformers();
 
+            // Populate clarity sheet
+            populateClarity();
+
             // Update timestamp
             document.getElementById('update-info').textContent = `Last updated: ${lastUpdate.toLocaleString('en-AU')} • Data period: ${dashboardData.metadata.period}`;
+        }
+
+        function populateClarity() {
+            const clarity = dashboardData.claritySheet;
+            
+            // Business Metrics
+            document.getElementById('clarity-gross-revenue').textContent = '$' + clarity.businessMetrics.revenue.shopifyGrossRevenue.toLocaleString();
+            document.getElementById('clarity-net-revenue').textContent = '$' + clarity.businessMetrics.revenue.shopifyNetRevenue.toLocaleString();
+            document.getElementById('clarity-refunds').textContent = '$' + clarity.businessMetrics.revenue.refunds;
+            document.getElementById('clarity-margin').textContent = clarity.profitability.grossMargin + '%';
+            document.getElementById('clarity-op-margin').textContent = clarity.profitability.operatingMargin + '%';
+            document.getElementById('clarity-net-profit').textContent = '$' + clarity.profitability.netProfit.toLocaleString();
+            document.getElementById('clarity-ltv').textContent = '$' + clarity.profitability.ltv;
+            document.getElementById('clarity-ltv-cac').textContent = clarity.profitability.ltv_cac_ratio + 'x';
+            
+            // GA4 Traffic
+            document.getElementById('clarity-traffic').textContent = clarity.businessMetrics.traffic.gaTraffic.toLocaleString();
+            document.getElementById('clarity-organic').textContent = clarity.businessMetrics.traffic.organicTraffic;
+            document.getElementById('clarity-paid-traffic').textContent = clarity.businessMetrics.traffic.paidTraffic;
+            document.getElementById('clarity-direct').textContent = clarity.businessMetrics.traffic.directTraffic;
+            
+            // Email
+            document.getElementById('clarity-subscribers').textContent = clarity.businessMetrics.email.subscribers.toLocaleString();
+            document.getElementById('clarity-email-growth').textContent = '+' + clarity.businessMetrics.email.growth;
+            document.getElementById('clarity-open-rate').textContent = clarity.businessMetrics.email.openRate + '%';
+            
+            // Customers
+            document.getElementById('clarity-customers').textContent = clarity.businessMetrics.customers.totalCustomers;
+            document.getElementById('clarity-new-customers').textContent = clarity.businessMetrics.customers.newCustomers;
+            document.getElementById('clarity-repeat-rate').textContent = clarity.businessMetrics.customers.repeatPurchaseRate + '%';
+            
+            // Scorecard
+            const scorecardContainer = document.getElementById('scorecard-container');
+            scorecardContainer.innerHTML = Object.entries(clarity.scorecard).map(([key, score]) => {
+                const statusColor = score.status === 'poor' ? '#dc3545' : score.status === 'fair' ? '#ffc107' : '#10b981';
+                const statusBg = score.status === 'poor' ? '#fee2e2' : score.status === 'fair' ? '#fef3c7' : '#d1fae5';
+                return `
+                    <div style="background: ${statusBg}; padding: 20px; border-radius: 8px; border-left: 4px solid ${statusColor};">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <strong>${key.replace(/([A-Z])/g, ' $1').trim()}</strong>
+                            <div style="font-size: 24px; color: ${statusColor}; font-weight: 700;">${score.score}/10</div>
+                        </div>
+                        <div style="font-size: 12px; color: #666;">${score.notes}</div>
+                    </div>
+                `;
+            }).join('');
+            
+            // Gaps Table
+            const gapsTable = document.getElementById('gaps-table');
+            gapsTable.innerHTML = clarity.gaps.map(gap => {
+                const priorityColor = gap.priority === 'critical' ? '#dc3545' : gap.priority === 'high' ? '#ffc107' : '#17a2b8';
+                return `
+                    <tr>
+                        <td><strong>${gap.metric}</strong></td>
+                        <td>${typeof gap.current === 'number' && gap.current > 100 ? '$' + gap.current : gap.current}</td>
+                        <td>${typeof gap.target === 'number' && gap.target > 100 ? '$' + gap.target : gap.target}</td>
+                        <td style="color: ${gap.gap_percent < 0 ? '#dc3545' : '#10b981'}; font-weight: 600;">${gap.gap_percent > 0 ? '+' : ''}${gap.gap_percent}%</td>
+                        <td><span class="badge" style="background: ${priorityColor}20; color: ${priorityColor};">${gap.priority.toUpperCase()}</span></td>
+                    </tr>
+                `;
+            }).join('');
+            
+            // Summary
+            const summaryContainer = document.getElementById('clarity-summary');
+            const netMarginTarget = clarity.targets.netMarginTarget;
+            const roasTarget = clarity.targets.roasTarget;
+            const currentROAS = dashboardData.summary.roas;
+            
+            summaryContainer.innerHTML = `
+                <h4 style="margin-bottom: 15px;">Key Insights</h4>
+                <ul style="margin-left: 20px; line-height: 1.8;">
+                    <li><strong>Profitability is healthy (45% net margin)</strong> — but ad spend is the constraint limiting scale</li>
+                    <li><strong>ROAS gap is critical: 0.37x vs 1.2x target</strong> — Creative testing + audience optimization = highest priority</li>
+                    <li><strong>LTV:CAC ratio 3.6x is solid</strong> (target 4.0x) — Once ROAS improves, growth becomes exponential</li>
+                    <li><strong>Email growing fast (+156 subs this period)</strong> — Focus on nurturing for repeat purchases</li>
+                    <li><strong>Paid ads are only customer channel</strong> — Build organic + referral to reduce acquisition cost</li>
+                    <li><strong>Repeat purchase rate 45% is good</strong> — Post-purchase experience is working. Scale repeat offers.</li>
+                </ul>
+                
+                <h4 style="margin-top: 20px; margin-bottom: 15px;">Recommended Actions (Priority Order)</h4>
+                <ol style="margin-left: 20px; line-height: 1.8;">
+                    <li><strong>Fix Campaign B creative (58% of spend, 0.31x ROAS)</strong> — Test 3 new angles, implement by EOW</li>
+                    <li><strong>Scale Campaign D (0.71x ROAS, best performer)</strong> — Increase budget +50%, proven to work</li>
+                    <li><strong>Build email revenue stream</strong> — Nurture 1,240 subs, add upsell sequences, target $500/month</li>
+                    <li><strong>Activate referral program</strong> — At 45% repeat rate, customers will refer. Build incentive ($20 off per friend)</li>
+                    <li><strong>Expand to organic/SEO</strong> — Reduce CAC dependency on paid. Blog + organic = long-term moat</li>
+                </ol>
+                
+                <h4 style="margin-top: 20px; margin-bottom: 15px;">📊 Data Sources</h4>
+                <p style="font-size: 12px; color: #999;">Shopify (revenue, orders, customers) | Madgicx (ad performance) | GA4 (traffic) | Klaviyo (email) | Updated daily at 8am AEST</p>
+            `;
         }
 
         function populateMetrics() {

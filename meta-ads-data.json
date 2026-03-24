@@ -251,5 +251,108 @@
       "timeline": "90 days",
       "condition": "if full optimization plan executed"
     }
+  },
+  "claritySheet": {
+    "businessMetrics": {
+      "revenue": {
+        "shopifyGrossRevenue": 5420,
+        "shopifyNetRevenue": 5200,
+        "refunds": 220,
+        "averageOrderValue": 59.95,
+        "totalOrders": 87,
+        "source": "Shopify"
+      },
+      "advertising": {
+        "totalAdSpend": 1200,
+        "madgicxSpend": 1200,
+        "roas": 0.37,
+        "cpa": 42,
+        "cpc": 1.20,
+        "cpm": 8.50,
+        "impressions": 141451,
+        "clicks": 1369,
+        "conversions": 9,
+        "source": "Madgicx"
+      },
+      "traffic": {
+        "gaTraffic": 2847,
+        "organicTraffic": 1402,
+        "paidTraffic": 1369,
+        "directTraffic": 76,
+        "bounceRate": 42,
+        "avgSessionDuration": "1m 24s",
+        "source": "GA4"
+      },
+      "email": {
+        "subscribers": 1240,
+        "growth": 156,
+        "openRate": 22,
+        "clickRate": 2.8,
+        "unsubscribeRate": 0.3,
+        "source": "Klaviyo"
+      },
+      "customers": {
+        "totalCustomers": 87,
+        "newCustomers": 9,
+        "returningCustomers": 78,
+        "repeatPurchaseRate": 45,
+        "churnRate": 2,
+        "source": "Shopify"
+      }
+    },
+    "profitability": {
+      "grossProfit": 3640,
+      "grossMargin": 67,
+      "operatingExpenses": 1200,
+      "operatingProfit": 2440,
+      "operatingMargin": 45,
+      "netProfit": 2440,
+      "netMargin": 45,
+      "ltv": 152,
+      "ltv_cac_ratio": 3.6,
+      "breakEvenDays": 2.8
+    },
+    "acquisitionMetrics": {
+      "totalCAC": 42,
+      "paidCAC": 42,
+      "organicCAC": 0,
+      "emailCAC": 0,
+      "referralCAC": 0,
+      "allChannels": [
+        { "channel": "Paid Ads", "cac": 42, "volume": 9, "percent": 100 },
+        { "channel": "Organic", "cac": 0, "volume": 0, "percent": 0 },
+        { "channel": "Email", "cac": 0, "volume": 0, "percent": 0 },
+        { "channel": "Referral", "cac": 0, "volume": 0, "percent": 0 }
+      ]
+    },
+    "retentionMetrics": {
+      "dayOne": 45,
+      "dayThree": 22,
+      "daySevenRepeat": 8,
+      "repeatOrderValue": 45,
+      "customerLifetime": 152,
+      "repeatRate": 45
+    },
+    "targets": {
+      "monthlyRevenueTarget": 10000,
+      "roasTarget": 1.2,
+      "cpaTarget": 35,
+      "netMarginTarget": 45,
+      "ltv_cac_Target": 4.0
+    },
+    "gaps": [
+      { "metric": "ROAS", "current": 0.37, "target": 1.2, "gap": 0.83, "gap_percent": -69, "priority": "critical" },
+      { "metric": "Monthly Revenue", "current": 5200, "target": 10000, "gap": 4800, "gap_percent": -48, "priority": "critical" },
+      { "metric": "CPA", "current": 42, "target": 35, "gap": -7, "gap_percent": 20, "priority": "high" },
+      { "metric": "Email Subscribers", "current": 1240, "target": 3000, "gap": 1760, "gap_percent": -41, "priority": "medium" },
+      { "metric": "Repeat Purchase Rate", "current": 45, "target": 60, "gap": -15, "gap_percent": -25, "priority": "medium" }
+    ],
+    "scorecard": {
+      "adPerformance": { "score": 3, "max": 10, "status": "poor", "notes": "ROAS 0.37x vs 1.2x target. Creative and audience optimization needed." },
+      "profitability": { "score": 7, "max": 10, "status": "good", "notes": "45% net margin is healthy. Ad spend is the constraint." },
+      "customerAcquisition": { "score": 5, "max": 10, "status": "fair", "notes": "CPA $42 vs $35 target. Paid ads only channel. Need organic/referral." },
+      "retention": { "score": 6, "max": 10, "status": "fair", "notes": "45% repeat rate good. Email program growing. Focus on day-1 experience." },
+      "efficiency": { "score": 4, "max": 10, "status": "poor", "notes": "LTV:CAC 3.6x vs 4.0x target. Need better targeting and creative." }
+    }
   }
 }
