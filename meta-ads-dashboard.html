@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Sniperform Meta Ads Dashboard</title>
     <style>
         * {
@@ -68,6 +70,22 @@
             margin-bottom: 30px;
         }
         
+        @media (max-width: 768px) {
+            .dashboard {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+                gap: 15px;
+                margin-bottom: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                margin-bottom: 15px;
+            }
+        }
+        
         .card {
             background: white;
             padding: 25px;
@@ -81,6 +99,7 @@
             text-transform: uppercase;
             margin-bottom: 12px;
             font-weight: 600;
+            letter-spacing: 0.5px;
         }
         
         .metric {
@@ -88,6 +107,43 @@
             font-weight: 700;
             color: #1a1a1a;
             margin-bottom: 8px;
+            line-height: 1.2;
+        }
+        
+        @media (max-width: 768px) {
+            .card {
+                padding: 20px;
+                border-radius: 10px;
+            }
+            
+            .card h3 {
+                font-size: 11px;
+                margin-bottom: 10px;
+            }
+            
+            .metric {
+                font-size: 26px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .card {
+                padding: 16px;
+                border-radius: 8px;
+            }
+            
+            .card h3 {
+                font-size: 10px;
+                margin-bottom: 8px;
+            }
+            
+            .metric {
+                font-size: 22px;
+            }
+            
+            .metric-label {
+                font-size: 11px !important;
+            }
         }
         
         .metric.target {
@@ -155,12 +211,40 @@
             text-align: left;
             font-weight: 600;
             color: #333;
-            border-bottom: 1px solid #e9ecef;
+            border-bottom: 2px solid #e9ecef;
         }
         
         td {
             padding: 12px;
             border-bottom: 1px solid #e9ecef;
+        }
+        
+        @media (max-width: 768px) {
+            table {
+                font-size: 12px;
+            }
+            
+            th, td {
+                padding: 10px 8px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            table {
+                font-size: 11px;
+                display: block;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            th, td {
+                padding: 8px 6px;
+                white-space: nowrap;
+            }
+            
+            tr {
+                min-width: 100%;
+            }
         }
         
         tr:hover {
