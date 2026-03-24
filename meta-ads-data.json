@@ -1,0 +1,255 @@
+{
+  "lastUpdated": "2026-03-24T20:57:00Z",
+  "metadata": {
+    "account": "Sniperform_au's ad account",
+    "period": "Last 7 days",
+    "automationScore": 33
+  },
+  "summary": {
+    "totalSpend": 1200,
+    "dailyAverage": 171,
+    "roas": 0.37,
+    "conversionRate": 0.55,
+    "cpc": 1.20,
+    "cpm": 8.50,
+    "monthlyRevenue": 1800
+  },
+  "targets": {
+    "roas": 1.2,
+    "conversionRate": 1.5,
+    "cpc": 0.90,
+    "cpm": 7.0,
+    "monthlyRevenue": 10000
+  },
+  "campaigns": [
+    {
+      "id": "A",
+      "name": "Awareness - Video Views",
+      "objective": "Video Views",
+      "status": "active",
+      "dailyBudget": 40,
+      "spend7d": 280,
+      "roas": 0.42,
+      "cvr": 0.48,
+      "cpc": 1.15,
+      "cpm": 8.20,
+      "clicks": 243,
+      "conversions": 1,
+      "impressions": 34146,
+      "notes": "Awareness phase, ROAS low as expected"
+    },
+    {
+      "id": "B",
+      "name": "Conversion - Core",
+      "objective": "Conversions",
+      "status": "active",
+      "dailyBudget": 100,
+      "spend7d": 700,
+      "roas": 0.31,
+      "cvr": 0.52,
+      "cpc": 1.35,
+      "cpm": 9.10,
+      "clicks": 519,
+      "conversions": 3,
+      "impressions": 76923,
+      "notes": "UNDERPERFORMER - Recommend creative testing + audience refinement"
+    },
+    {
+      "id": "C",
+      "name": "Retargeting - Warm",
+      "objective": "Conversions",
+      "status": "active",
+      "dailyBudget": 50,
+      "spend7d": 350,
+      "roas": 0.58,
+      "cvr": 0.78,
+      "cpc": 0.95,
+      "cpm": 7.50,
+      "clicks": 368,
+      "conversions": 3,
+      "impressions": 46667,
+      "notes": "Performing better than cold traffic - SCALE THIS"
+    },
+    {
+      "id": "D",
+      "name": "Retargeting - Hot",
+      "objective": "Conversions",
+      "status": "active",
+      "dailyBudget": 30,
+      "spend7d": 210,
+      "roas": 0.71,
+      "cvr": 1.05,
+      "cpc": 0.88,
+      "cpm": 6.80,
+      "clicks": 239,
+      "conversions": 2,
+      "impressions": 30882,
+      "notes": "BEST PERFORMER - Increase budget, this is gold"
+    },
+    {
+      "id": "E",
+      "name": "Loyalty - Upsell",
+      "objective": "Conversions",
+      "status": "paused",
+      "dailyBudget": 0,
+      "spend7d": 0,
+      "roas": 0,
+      "cvr": 0,
+      "cpc": 0,
+      "cpm": 0,
+      "clicks": 0,
+      "conversions": 0,
+      "impressions": 0,
+      "notes": "On hold until customer base grows"
+    }
+  ],
+  "topPerformers": [
+    {
+      "rank": 1,
+      "campaign": "Campaign D - Retargeting Hot",
+      "roas": 0.71,
+      "conversions": 2,
+      "spend": 210,
+      "reason": "Hot audience (ATC + init checkout) - highest intent"
+    },
+    {
+      "rank": 2,
+      "campaign": "Campaign C - Retargeting Warm",
+      "roas": 0.58,
+      "conversions": 3,
+      "spend": 350,
+      "reason": "Warm retargeting outperforming cold traffic 2x"
+    },
+    {
+      "rank": 3,
+      "campaign": "Campaign A - Awareness",
+      "roas": 0.42,
+      "conversions": 1,
+      "spend": 280,
+      "reason": "Awareness phase, expected low ROAS"
+    }
+  ],
+  "underperformers": [
+    {
+      "rank": 1,
+      "campaign": "Campaign B - Conversion Core",
+      "roas": 0.31,
+      "conversions": 3,
+      "spend": 700,
+      "issue": "Highest spend, lowest ROAS - creative fatigue or audience mismatch",
+      "recommendation": "Test 3 new creative angles (bilateral balance, imbalance reveal, coach endorsement)"
+    }
+  ],
+  "issues": [
+    {
+      "severity": "critical",
+      "issue": "Campaign B spending 58% of budget with 0.31x ROAS",
+      "impact": "Wasting ~$400/week on underperforming audience",
+      "action": "Pause current creatives, test new angles immediately"
+    },
+    {
+      "severity": "warning",
+      "issue": "Overall ROAS 0.37x vs 1.2x target (31% of goal)",
+      "impact": "Losing money on every dollar spent at current rate",
+      "action": "Execute budget rebalancing: move from B → C,D"
+    },
+    {
+      "severity": "warning",
+      "issue": "CPC $1.20 vs $0.90 target (33% above target)",
+      "impact": "Cost per acquisition too high",
+      "action": "Audience refinement + creative quality improvement"
+    }
+  ],
+  "madgicxRecommendations": [
+    {
+      "title": "Stop-loss for acquisition ads with no clicks",
+      "priority": "high",
+      "action": "Pause any ad in Campaign B with 0 clicks in 24hrs to save budget",
+      "status": "recommended"
+    },
+    {
+      "title": "Retest promising old ads",
+      "priority": "medium",
+      "action": "Campaign D creatives are winning - duplicate and scale 20% more budget",
+      "status": "recommended"
+    },
+    {
+      "title": "Retarget recent visitors (past 30 days)",
+      "priority": "medium",
+      "action": "Expand Campaign C budget +$20/day - warm audience is 2x more profitable",
+      "status": "recommended"
+    }
+  ],
+  "recommendations": [
+    {
+      "rank": 1,
+      "title": "🚨 URGENT: Rebalance Budget",
+      "description": "Move $50/day from Campaign B → Campaigns C & D (proven winners). Expected impact: +150% ROAS improvement",
+      "action": "Reduce B from $100 → $50/day. Increase C from $50 → $70/day. Increase D from $30 → $50/day",
+      "timeline": "Implement immediately",
+      "estimatedROI": "Est. new ROAS: 0.60x–0.75x"
+    },
+    {
+      "rank": 2,
+      "title": "🎨 Creative Testing Sprint",
+      "description": "Campaign B has ad fatigue. Test 3 new creative angles from competitor research (bilateral balance, imbalance reveal, coach testimonial)",
+      "action": "Launch 3 new ads with $15/day each (testing spend). Pause 3 worst performers",
+      "timeline": "Launch by EOW, evaluate by April 7",
+      "estimatedROI": "Target: 0.55x+ ROAS on new creatives"
+    },
+    {
+      "rank": 3,
+      "title": "📈 Audience Expansion",
+      "description": "Current targeting too narrow. Test 5% and 10% lookalike audiences alongside 1% LLA in Campaign D (best performer)",
+      "action": "Create 2 new audience stacks for Campaign D. Allocate $10/day test budget each",
+      "timeline": "Launch by next week",
+      "estimatedROI": "Est. $2-3K additional monthly revenue"
+    }
+  ],
+  "competitorInsights": {
+    "fatGripz": {
+      "primaryHook": "Get big biceps and forearms FAST",
+      "mainFocus": "Muscle size/strength gains",
+      "targetAudience": "Fitness athletes, bodybuilders, MMA (males 18-45)",
+      "pricePoint": "$27-36",
+      "socialProof": "Elite athletes (Phil Heath, Klokov)",
+      "whatTheyreMissing": [
+        "❌ No bilateral balance messaging",
+        "❌ No real-time feedback mechanism",
+        "❌ No injury prevention angle",
+        "❌ No hand symmetry focus"
+      ]
+    },
+    "sniperformAdvantage": [
+      "✅ ONLY product with bilateral balance feedback",
+      "✅ Patent-pending real-time vial indicator",
+      "✅ Injury prevention positioning (untapped market)",
+      "✅ Technology/innovation narrative"
+    ],
+    "contentAngles": [
+      "The Grip Imbalance You Don't Know You Have",
+      "Why Elite Athletes Train with Bilateral Balance",
+      "Grip Strength Isn't Everything—Balance Is"
+    ]
+  },
+  "forecast": {
+    "currentTrajectory": {
+      "roas": 0.50,
+      "monthlyRevenue": 3000,
+      "timeline": "30 days",
+      "condition": "if no changes"
+    },
+    "withRecommendations": {
+      "roas": 0.85,
+      "monthlyRevenue": 6500,
+      "timeline": "30 days",
+      "condition": "if all 3 recommendations executed"
+    },
+    "ninetyday": {
+      "roas": 1.2,
+      "monthlyRevenue": 10000,
+      "timeline": "90 days",
+      "condition": "if full optimization plan executed"
+    }
+  }
+}
