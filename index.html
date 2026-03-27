@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sniperform | Meta Growth Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f8fafc; }
+        .glass { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .card-hover:hover { transform: translateY(-4px); transition: all 0.3s ease; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3); }
+        .sidebar-link:hover { background: rgba(255, 255, 255, 0.05); }
+        .sidebar-link.active { background: #3b82f6; color: white; }
+        .accent-border { border-left: 4px solid #3b82f6; }
+    </style>
+</head>
+<body class="flex min-h-screen">
+    <!-- Sidebar -->
+    <aside class="w-64 glass border-r border-slate-800 flex flex-col fixed h-full">
+        <div class="p-6">
+            <h1 class="text-xl font-bold tracking-tighter text-white">SNIPERFORM</h1>
+            <p class="text-[10px] text-slate-400 uppercase tracking-widest mt-1">Meta Growth Dashboard</p>
+        </div>
+        <nav class="flex-1 px-4 space-y-1">
+            <a href="#" class="sidebar-link active flex items-center px-4 py-3 rounded-lg text-sm font-medium transition-colors">
+                <i class="fas fa-chart-line w-5 mr-3"></i> Dashboard
+            </a>
+            <a href="#" class="sidebar-link flex items-center px-4 py-3 rounded-lg text-sm font-medium text-slate-400 transition-colors">
+                <i class="fas fa-layer-group w-5 mr-3"></i> Account Structure
+            </a>
+            <a href="#" class="sidebar-link flex items-center px-4 py-3 rounded-lg text-sm font-medium text-slate-400 transition-colors">
+                <i class="fas fa-play-circle w-5 mr-3"></i> Creative Performance
+            </a>
+            <a href="#" class="sidebar-link flex items-center px-4 py-3 rounded-lg text-sm font-medium text-slate-400 transition-colors">
+                <i class="fas fa-users w-5 mr-3"></i> Audiences
+            </a>
+            <a href="#" class="sidebar-link flex items-center px-4 py-3 rounded-lg text-sm font-medium text-slate-400 transition-colors">
+                <i class="fas fa-code w-5 mr-3"></i> Pixel & Tracking
+            </a>
+            <div class="pt-4 pb-2 px-4">
+                <p class="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Strategy</p>
+            </div>
+            <a href="#" class="sidebar-link flex items-center px-4 py-3 rounded-lg text-sm font-medium text-slate-400 transition-colors">
+                <i class="fas fa-bullseye w-5 mr-3"></i> Ad Concepts
+            </a>
+            <a href="#" class="sidebar-link flex items-center px-4 py-3 rounded-lg text-sm font-medium text-slate-400 transition-colors">
+                <i class="fas fa-bolt w-5 mr-3"></i> Hook Database
+            </a>
+        </nav>
+        <div class="p-4 border-t border-slate-800">
+            <div class="flex items-center gap-3 px-2">
+                <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-xs font-bold">SP</div>
+                <div>
+                    <p class="text-xs font-medium">Sniperform Admin</p>
+                    <p class="text-[10px] text-slate-500">Growth Mode</p>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 ml-64 p-8">
+        <header class="flex justify-between items-end mb-8">
+            <div>
+                <p class="text-slate-400 text-sm font-medium uppercase tracking-wider">Performance Snapshot</p>
+                <h2 class="text-3xl font-bold text-white">Creative Efficiency Overview</h2>
+            </div>
+            <div class="flex gap-3">
+                <div class="px-4 py-2 glass rounded-lg text-xs font-medium flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                    Live Updates
+                </div>
+            </div>
+        </header>
+
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="glass p-6 rounded-2xl card-hover">
+                <p class="text-slate-400 text-xs font-medium uppercase mb-1">Best CPP</p>
+                <h3 class="text-4xl font-bold text-green-400 mb-2">$13.24</h3>
+                <p class="text-[11px] text-slate-500">Top performer: <span class="text-white">Video 3 (Bars Only)</span></p>
+            </div>
+            <div class="glass p-6 rounded-2xl card-hover">
+                <p class="text-slate-400 text-xs font-medium uppercase mb-1">Avg Hook Retention</p>
+                <h3 class="text-4xl font-bold text-blue-400 mb-2">4.2s</h3>
+                <p class="text-[11px] text-slate-500">Above benchmark by <span class="text-green-400">+1.2s</span></p>
+            </div>
+            <div class="glass p-6 rounded-2xl card-hover">
+                <p class="text-slate-400 text-xs font-medium uppercase mb-1">Active Ads</p>
+                <h3 class="text-4xl font-bold text-white mb-2">216</h3>
+                <p class="text-[11px] text-slate-500">Volume is high, efficiency <span class="text-yellow-400">mixed</span></p>
+            </div>
+            <div class="glass p-6 rounded-2xl card-hover">
+                <p class="text-slate-400 text-xs font-medium uppercase mb-1">USA Lookalikes</p>
+                <h3 class="text-4xl font-bold text-red-400 mb-2">0</h3>
+                <p class="text-[11px] text-slate-500">No active <span class="text-white">US-seeded LLA</span> audiences</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <!-- Left Column: Strategy Gaps -->
+            <div class="lg:col-span-4 space-y-6">
+                <div class="glass p-6 rounded-2xl">
+                    <h4 class="text-lg font-bold mb-4 flex items-center">
+                        <i class="fas fa-exclamation-triangle text-yellow-500 mr-2"></i> Critical Strategy Gaps
+                    </h4>
+                    <p class="text-xs text-slate-400 mb-6">Immediate blockers impacting scale performance in core markets.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="p-4 rounded-xl bg-red-500/10 border border-red-500/20 accent-border border-l-red-500">
+                            <p class="text-xs font-bold text-red-400 uppercase tracking-wider mb-1">CAPI Gap</p>
+                            <p class="text-[11px] leading-relaxed text-slate-300">Conversion API is not fully configured, creating attribution drift and reducing optimization signal quality.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-yellow-500/10 border border-yellow-500/20 accent-border border-l-yellow-500">
+                            <p class="text-xs font-bold text-yellow-400 uppercase tracking-wider mb-1">AU-based Lookalikes</p>
+                            <p class="text-[11px] leading-relaxed text-slate-300">Current lookalike seeds are concentrated in Australia, leaving USA expansion without localized audience modeling.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Photoshoot Roadmap -->
+            <div class="lg:col-span-8">
+                <div class="glass p-8 rounded-2xl border-t-4 border-blue-500">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h4 class="text-xl font-bold text-white">Photoshoot Roadmap: Video 1</h4>
+                            <p class="text-blue-400 text-sm font-medium">Concept: The Precision Hook</p>
+                        </div>
+                        <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-[10px] font-bold uppercase tracking-wider">Production Ready</span>
+                    </div>
+                    
+                    <p class="text-sm text-slate-400 mb-8 leading-relaxed">Built for high attention in the first 3 seconds, targeting form-conscious lifters.</p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <h5 class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-4">Full Script</h5>
+                            <div class="p-5 rounded-xl bg-slate-900/50 border border-slate-800 italic text-sm leading-relaxed text-slate-200">
+                                "Stop lifting blind. This tiny bubble is the difference between a 225-pound bench and a 315-pound bench. Most lifters leak power because their bar path tilts without them seeing it. Clip this level onto your bar, keep the bubble centered, and your force goes straight into the press. One simple visual cue fixes your setup, your rep consistency, and your confidence under heavy load. If your numbers have stalled, this is the fastest form correction to add today."
+                            </div>
+                        </div>
+                        <div>
+                            <h5 class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-4">Shot List</h5>
+                            <ul class="space-y-3">
+                                <li class="flex items-start gap-3">
+                                    <span class="flex-shrink-0 w-5 h-5 rounded bg-blue-600 flex items-center justify-center text-[10px] font-bold">1</span>
+                                    <p class="text-[13px] text-slate-300">Tight macro shot of unstable bubble during a bad rep.</p>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="flex-shrink-0 w-5 h-5 rounded bg-blue-600 flex items-center justify-center text-[10px] font-bold">2</span>
+                                    <p class="text-[13px] text-slate-300">Wide side angle showing bar tilt and shoulder compensation.</p>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="flex-shrink-0 w-5 h-5 rounded bg-blue-600 flex items-center justify-center text-[10px] font-bold">3</span>
+                                    <p class="text-[13px] text-slate-300">Coach hand enters frame, clips level onto bar in one motion.</p>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="flex-shrink-0 w-5 h-5 rounded bg-blue-600 flex items-center justify-center text-[10px] font-bold">4</span>
+                                    <p class="text-[13px] text-slate-300">Second rep with bubble centered; bar path stays clean.</p>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="flex-shrink-0 w-5 h-5 rounded bg-blue-600 flex items-center justify-center text-[10px] font-bold">5</span>
+                                    <p class="text-[13px] text-slate-300">Split-screen before vs after with identical weight.</p>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="flex-shrink-0 w-5 h-5 rounded bg-slate-700 flex items-center justify-center text-[10px] font-bold">6</span>
+                                    <p class="text-[13px] text-slate-300 font-bold text-white">End frame CTA: Fix form, unlock strength, train precisely.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
